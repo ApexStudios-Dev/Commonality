@@ -135,16 +135,7 @@ artifacts {
 
 if(System.getenv('GENERATE_CHANGELOG') != null) {
 	def previousGitTag
-	def prefix = 'v'
-	def suffix = ''
-
-	if(mod_release_type == 'prerelease') {
-		prefix = 'pv'
-	} else if(mod_release_type == 'alpha' || mod_release_type == 'beta') {
-		suffix = "${mod_release_type}".toUpperCase()
-	}
-
-	def currentGitTag = "${prefix}${mod_version}${suffix}"
+	def currentGitTag = "v${mod_version}"
 
 	try {
 		def code = new ByteArrayOutputStream()
