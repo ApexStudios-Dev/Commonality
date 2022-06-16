@@ -3,7 +3,9 @@ Mod which houses common elements used by various mods.
 
 As of right now this mod exists purely for a good place to house common Tags, but the contents maybe expanded on in the future.
 
-Feel free to forke & create pull requests to add additional content to this mod.
+Feel free to fork & create pull requests to add additional content to this mod.
+
+The class `xyz.apex.forge.commonality.init.Mods` holds some useful mod id constants.
 
 ### Tags
 **Location**: `xyz.apex.forge.commonality.init.<Type>Tags`<br>
