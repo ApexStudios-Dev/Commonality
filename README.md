@@ -86,9 +86,6 @@ To do this you must have your mod depend on [**ApexCore**](https://github.com/Ap
 <details>
 <summary>Depending on ApexCore</summary>
 
-Note: That when depending on [**ApexCore**](https://github.com/ApexStudios-Dev/ApexCore) you will also have to have [**Registrator**](https://github.com/ApexStudios-Dev/Registrator) as an additional dependency as
-ApexCore requires it in order to function.
-
 First add my maven repository,
 
 ```groovy
@@ -101,7 +98,6 @@ and then the ApexCore dependency to the `implementation` configuration.
 
 ```groovy
 dependencies {
-	implementation fg.deobf("xyz.apex.forge.utility:registrator:${minecraft_version}-${registrator_version}")
 	implementation fg.deobf("xyz.apex.forge:apexcore:${minecraft_version}-${apexcore_version}")
 }
 ```
