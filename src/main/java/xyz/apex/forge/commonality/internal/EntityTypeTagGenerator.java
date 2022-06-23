@@ -1,17 +1,17 @@
-package xyz.apex.forge.commonality.data;
+package xyz.apex.forge.commonality.internal;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import xyz.apex.forge.commonality.init.EntityTags;
+import xyz.apex.forge.commonality.tags.EntityTags;
 
-public final class EntityTypeTagGenerator extends EntityTypeTagsProvider
+final class EntityTypeTagGenerator extends EntityTypeTagsProvider
 {
 	EntityTypeTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, DataSetup.DATA_ID, fileHelper);
+		super(generator, DataSetup.ID, fileHelper);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ Feel free to fork & create pull requests to add additional content to this mod.
 The class `xyz.apex.forge.commonality.init.Mods` holds some useful mod id constants.
 
 ### Tags
-**Location**: `xyz.apex.forge.commonality.init.<Type>Tags`<br>
+**Location**: `xyz.apex.forge.commonality.tags.<Type>Tags`<br>
 These classes house all **Vanilla** & **Forge** tags plus any commonality tags used by various mods.
 
 ### Dependency 

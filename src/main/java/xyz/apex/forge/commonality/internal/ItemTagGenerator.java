@@ -1,17 +1,17 @@
-package xyz.apex.forge.commonality.data;
+package xyz.apex.forge.commonality.internal;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import xyz.apex.forge.commonality.init.ItemTags;
+import xyz.apex.forge.commonality.tags.ItemTags;
 
-public final class ItemTagGenerator extends ItemTagsProvider
+final class ItemTagGenerator extends ItemTagsProvider
 {
 	ItemTagGenerator(DataGenerator generator, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
 	{
-		super(generator, blockTagGenerator, DataSetup.DATA_ID, fileHelper);
+		super(generator, blockTagGenerator, DataSetup.ID, fileHelper);
 	}
 
 	@Override

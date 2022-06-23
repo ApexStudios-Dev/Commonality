@@ -1,22 +1,14 @@
-package xyz.apex.forge.commonality.data;
-
-import org.apache.commons.lang3.Validate;
+package xyz.apex.forge.commonality.internal;
 
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 public final class DataSetup
 {
-	static final String DATA_ID = "commonality";
-	private static boolean setup = false;
+	static final String ID = "commonality";
 
-	public static void setup()
+	public static void generate()
 	{
-		if(setup)
-			return;
-
-		Validate.isTrue(setup == false);
-		setup = true;
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(DataSetup::onGatherData);
 	}
 

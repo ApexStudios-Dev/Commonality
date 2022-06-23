@@ -1,9 +1,11 @@
-package xyz.apex.forge.commonality.init;
+package xyz.apex.forge.commonality.tags;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.gameevent.GameEvent;
+
+import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")
 public interface GameEventTags

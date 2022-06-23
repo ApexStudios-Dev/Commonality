@@ -1,4 +1,4 @@
-package xyz.apex.forge.commonality.init;
+package xyz.apex.forge.commonality;
 
 import net.minecraftforge.versions.forge.ForgeVersion;
 
@@ -6,7 +6,7 @@ public interface Mods
 {
 	String FORGE = ForgeVersion.MOD_ID;
 	String MINECRAFT = "minecraft";
-	
+
 	String APEX_CORE = "apexcore";
 	String ASHEN_NETHER = "ashennether";
 	String FANTASY_DICE = "fantasydice";

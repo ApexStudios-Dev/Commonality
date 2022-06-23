@@ -2,15 +2,20 @@ package xyz.apex.forge.commonality;
 
 import net.minecraftforge.fml.common.Mod;
 
-import xyz.apex.forge.commonality.data.DataSetup;
+import java.lang.reflect.InvocationTargetException;
 
-@Mod(Commonality.ID)
-public class Commonality
+@Mod("commonality")
+public final class Commonality
 {
-	public static final String ID = "commonality";
-
 	public Commonality()
 	{
-		DataSetup.setup();
+		try
+		{
+			Class.forName("xyz.apex.forge.commonality.internal.DataSetup").getMethod("generate").invoke(null);
+		}
+		catch(ClassNotFoundException | InvocationTargetException | IllegalAccessException | NoSuchMethodException e)
+		{
+			throw new RuntimeException(e);
+		}
 	}
 }

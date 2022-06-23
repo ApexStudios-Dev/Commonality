@@ -1,5 +1,5 @@
 @MethodsReturnNonnullByDefault @FieldsAreNonnullByDefault @ParametersAreNonnullByDefault
-package xyz.apex.forge.commonality.data;
+package xyz.apex.forge.commonality.tags;
 
 import net.minecraft.FieldsAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;

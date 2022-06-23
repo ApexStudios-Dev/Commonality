@@ -1,14 +1,14 @@
-package xyz.apex.forge.commonality.data;
+package xyz.apex.forge.commonality.internal;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public final class BiomeTagGenerator extends BiomeTagsProvider
+final class BiomeTagGenerator extends BiomeTagsProvider
 {
 	BiomeTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, DataSetup.DATA_ID, fileHelper);
+		super(generator, DataSetup.ID, fileHelper);
 	}
 
 	@Override

@@ -1,21 +1,18 @@
 buildscript {
 	repositories {
 		maven { url 'https://maven.minecraftforge.net' }
-		maven { url 'https://maven.parchmentmc.org' }
 		mavenCentral()
 	}
 	dependencies {
-		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: "${forge_gradle_version}", changing: true
-		classpath "org.parchmentmc:librarian:${librarian_version}"
+		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
 	}
 }
 
 plugins {
-	id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version "${gradle_changelog_version}"
+	id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
 }
 
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
@@ -27,7 +24,7 @@ archivesBaseName = "${mod_id}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-	mappings channel: "${mappings_channel}", version: "${mappings_version}"
+	mappings channel: 'official', version: "${minecraft_version}"
 
 	runs {
 		data {
@@ -57,56 +54,6 @@ sourceSets.main.resources {
 
 dependencies {
 	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-}
-
-def resourceTargets = [ 'META-INF/mods.toml', '**/*.mcmeta' ]
-def intoTargets = [
-		"${projectDir}/out/production/resources/",
-		"${projectDir}/out/production/${project.name}.main/",
-		"${projectDir}/out/production/${project.name}.test/",
-		"${projectDir}/bin/main/",
-		"${projectDir}/bin/test/",
-		"${projectDir}/build/resources/test/"
-]
-
-def replaceProperties = project.properties
-
-processResources {
-	filesMatching(resourceTargets) {
-		expand replaceProperties
-	}
-
-	intoTargets.each { target ->
-		if(file(target).exists()) {
-			copy{
-				from(sourceSets.main.resources) {
-					include resourceTargets
-					expand replaceProperties
-				}
-
-				into target
-			}
-		}
-	}
-}
-
-processTestResources {
-	filesMatching(resourceTargets) {
-		expand replaceProperties
-	}
-
-	intoTargets.each { target ->
-		if(file(target).exists()) {
-			copy{
-				from(sourceSets.main.resources) {
-					include resourceTargets
-					expand replaceProperties
-				}
-
-				into target
-			}
-		}
-	}
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

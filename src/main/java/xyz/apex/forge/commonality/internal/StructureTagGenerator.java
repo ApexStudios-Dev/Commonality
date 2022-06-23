@@ -1,14 +1,14 @@
-package xyz.apex.forge.commonality.data;
+package xyz.apex.forge.commonality.internal;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ConfiguredStructureTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public final class StructureTagGenerator extends ConfiguredStructureTagsProvider
+final class StructureTagGenerator extends ConfiguredStructureTagsProvider
 {
 	public StructureTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, DataSetup.DATA_ID, fileHelper);
+		super(generator, DataSetup.ID, fileHelper);
 	}
 
 	@Override

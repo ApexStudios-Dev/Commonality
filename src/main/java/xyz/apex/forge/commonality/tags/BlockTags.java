@@ -1,10 +1,12 @@
-package xyz.apex.forge.commonality.init;
+package xyz.apex.forge.commonality.tags;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
+
+import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")
 public interface BlockTags
