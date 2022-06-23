@@ -1,4 +1,4 @@
-package xyz.apex.forge.commonality.internal;
+package xyz.apex.forge.commonality;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.FluidTagsProvider;
@@ -8,7 +8,7 @@ final class FluidTagGenerator extends FluidTagsProvider
 {
 	FluidTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, DataSetup.ID, fileHelper);
+		super(generator, Commonality.ID, fileHelper);
 	}
 
 	@Override

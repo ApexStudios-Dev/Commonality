@@ -23,6 +23,29 @@ archivesBaseName = "${mod_id}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+configurations {
+	api
+}
+
+sourceSets {
+	api {
+		java {
+			srcDirs = [ 'src/api/java' ]
+		}
+
+		resources {
+			srcDirs = [ 'src/api/resources' ]
+		}
+
+		compileClasspath += configurations.getByName("minecraft")
+	}
+
+	main {
+		compileClasspath += sourceSets.api.output
+		runtimeClasspath += sourceSets.api.output
+	}
+}
+
 minecraft {
 	mappings channel: 'official', version: "${minecraft_version}"
 
@@ -41,7 +64,7 @@ minecraft {
 			mods {
 				"${mod_id}" {
 					source sourceSets.main
-					source sourceSets.test
+					source sourceSets.api
 				}
 			}
 		}
@@ -58,24 +81,29 @@ dependencies {
 
 task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier 'sources'
-	from sourceSets.main.allJava
-	from sourceSets.main.resources
+	exclude 'META-INF/mods.toml'
+	from sourceSets.api.allJava
+	from sourceSets.api.resources
 }
 
 task deobfJar(type: Jar) {
 	classifier 'deobf'
 	exclude '**/*bbmodel'
-	from sourceSets.main.output
+	exclude 'META-INF/mods.toml'
+	from sourceSets.api.output
 }
 
-jar {
+jar.enabled = false
+
+task realJar(type: Jar) {
 	exclude '**/*bbmodel'
-	from sourceSets.main.output.classesDirs
-	from sourceSets.main.output.resourcesDir
+	exclude 'META-INF/mods.toml'
+	from sourceSets.api.output.classesDirs
+	from sourceSets.api.output.resourcesDir
 }
 
 artifacts {
-	archives jar
+	archives realJar
 	archives sourcesJar
 	archives deobfJar
 }
@@ -126,7 +154,7 @@ tasks.withType(Jar) {
 	}
 }
 
-jar.finalizedBy('reobfJar')
+realJar.finalizedBy('reobfJar')
 
 if(System.getenv('APEX_MODS_MAVEN_USERNAME') != null && System.getenv('APEX_MODS_MAVEN_PASSWORD') != null) {
 	publishing {
@@ -136,7 +164,7 @@ if(System.getenv('APEX_MODS_MAVEN_USERNAME') != null && System.getenv('APEX_MODS
 				artifactId = "${mod_id}"
 				version = "${minecraft_version}-${mod_version}"
 
-				artifact jar
+				artifact realJar
 				artifact sourcesJar
 				artifact deobfJar
 			}
@@ -160,7 +188,7 @@ if(System.getenv('APEX_MODS_MAVEN_USERNAME') != null && System.getenv('APEX_MODS
 				groupId = "${mod_base_package}"
 				artifactId = "${mod_id}"
 				version = "${minecraft_version}-${mod_version}"
-				artifact jar
+				artifact realJar
 				artifact sourcesJar
 				artifact deobfJar
 			}

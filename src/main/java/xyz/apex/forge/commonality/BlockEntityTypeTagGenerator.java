@@ -1,4 +1,4 @@
-package xyz.apex.forge.commonality.internal;
+package xyz.apex.forge.commonality;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.tags.Tag;
@@ -17,7 +17,7 @@ final class BlockEntityTypeTagGenerator extends ForgeRegistryTagsProvider<BlockE
 
 	BlockEntityTypeTagGenerator(DataGenerator generator, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
 	{
-		super(generator, ForgeRegistries.BLOCK_ENTITIES, DataSetup.ID, fileHelper);
+		super(generator, ForgeRegistries.BLOCK_ENTITIES, Commonality.ID, fileHelper);
 
 		blockTags = blockTagGenerator::getOrCreateRawBuilder;
 	}

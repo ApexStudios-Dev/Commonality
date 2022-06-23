@@ -1,18 +1,20 @@
-package xyz.apex.forge.commonality.internal;
+package xyz.apex.forge.commonality;
 
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
-public final class DataSetup
+@Mod(Commonality.ID)
+public final class Commonality
 {
-	static final String ID = "commonality";
+	public static final String ID = "commonality";
 
-	public static void generate()
+	public Commonality()
 	{
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(DataSetup::onGatherData);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onGatherData);
 	}
 
-	private static void onGatherData(GatherDataEvent event)
+	private void onGatherData(GatherDataEvent event)
 	{
 		var generator = event.getGenerator();
 		var fileHelper = event.getExistingFileHelper();

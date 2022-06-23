@@ -1,4 +1,4 @@
-package xyz.apex.forge.commonality.internal;
+package xyz.apex.forge.commonality;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -14,7 +14,7 @@ final class BlockTagGenerator extends BlockTagsProvider
 {
 	BlockTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, DataSetup.ID, fileHelper);
+		super(generator, Commonality.ID, fileHelper);
 	}
 
 	@Override
