@@ -18,7 +18,7 @@ public interface ItemTags
 		TagKey<Item> STONE_BRICKS = net.minecraft.tags.ItemTags.STONE_BRICKS;
 		TagKey<Item> WOODEN_BUTTONS = net.minecraft.tags.ItemTags.WOODEN_BUTTONS;
 		TagKey<Item> BUTTONS = net.minecraft.tags.ItemTags.BUTTONS;
-		TagKey<Item> CARPETS = net.minecraft.tags.ItemTags.CARPETS;
+		TagKey<Item> WOOL_CARPETS = net.minecraft.tags.ItemTags.WOOL_CARPETS;
 		TagKey<Item> WOODEN_DOORS = net.minecraft.tags.ItemTags.WOODEN_DOORS;
 		TagKey<Item> WOODEN_STAIRS = net.minecraft.tags.ItemTags.WOODEN_STAIRS;
 		TagKey<Item> WOODEN_SLABS = net.minecraft.tags.ItemTags.WOODEN_SLABS;
@@ -28,6 +28,7 @@ public interface ItemTags
 		TagKey<Item> DOORS = net.minecraft.tags.ItemTags.DOORS;
 		TagKey<Item> SAPLINGS = net.minecraft.tags.ItemTags.SAPLINGS;
 		TagKey<Item> LOGS_THAT_BURN = net.minecraft.tags.ItemTags.LOGS_THAT_BURN;
+		TagKey<Item> OVERWORLD_NATURAL_LOGS = net.minecraft.tags.ItemTags.OVERWORLD_NATURAL_LOGS;
 		TagKey<Item> LOGS = net.minecraft.tags.ItemTags.LOGS;
 		TagKey<Item> DARK_OAK_LOGS = net.minecraft.tags.ItemTags.DARK_OAK_LOGS;
 		TagKey<Item> OAK_LOGS = net.minecraft.tags.ItemTags.OAK_LOGS;
@@ -35,8 +36,10 @@ public interface ItemTags
 		TagKey<Item> ACACIA_LOGS = net.minecraft.tags.ItemTags.ACACIA_LOGS;
 		TagKey<Item> JUNGLE_LOGS = net.minecraft.tags.ItemTags.JUNGLE_LOGS;
 		TagKey<Item> SPRUCE_LOGS = net.minecraft.tags.ItemTags.SPRUCE_LOGS;
+		TagKey<Item> MANGROVE_LOGS = net.minecraft.tags.ItemTags.MANGROVE_LOGS;
 		TagKey<Item> CRIMSON_STEMS = net.minecraft.tags.ItemTags.CRIMSON_STEMS;
 		TagKey<Item> WARPED_STEMS = net.minecraft.tags.ItemTags.WARPED_STEMS;
+		TagKey<Item> WART_BLOCKS = net.minecraft.tags.ItemTags.WART_BLOCKS;
 		TagKey<Item> BANNERS = net.minecraft.tags.ItemTags.BANNERS;
 		TagKey<Item> SAND = net.minecraft.tags.ItemTags.SAND;
 		TagKey<Item> STAIRS = net.minecraft.tags.ItemTags.STAIRS;
@@ -69,7 +72,9 @@ public interface ItemTags
 		TagKey<Item> CANDLES = net.minecraft.tags.ItemTags.CANDLES;
 		TagKey<Item> DIRT = net.minecraft.tags.ItemTags.DIRT;
 		TagKey<Item> TERRACOTTA = net.minecraft.tags.ItemTags.TERRACOTTA;
+		TagKey<Item> COMPLETES_FIND_TREE_TUTORIAL = net.minecraft.tags.ItemTags.COMPLETES_FIND_TREE_TUTORIAL;
 		TagKey<Item> BOATS = net.minecraft.tags.ItemTags.BOATS;
+		TagKey<Item> CHEST_BOATS = net.minecraft.tags.ItemTags.CHEST_BOATS;
 		TagKey<Item> FISHES = net.minecraft.tags.ItemTags.FISHES;
 		TagKey<Item> SIGNS = net.minecraft.tags.ItemTags.SIGNS;
 		TagKey<Item> MUSIC_DISCS = net.minecraft.tags.ItemTags.MUSIC_DISCS;
@@ -82,8 +87,9 @@ public interface ItemTags
 		TagKey<Item> STONE_CRAFTING_MATERIALS = net.minecraft.tags.ItemTags.STONE_CRAFTING_MATERIALS;
 		TagKey<Item> FREEZE_IMMUNE_WEARABLES = net.minecraft.tags.ItemTags.FREEZE_IMMUNE_WEARABLES;
 		TagKey<Item> AXOLOTL_TEMPT_ITEMS = net.minecraft.tags.ItemTags.AXOLOTL_TEMPT_ITEMS;
-		TagKey<Item> OCCLUDES_VIBRATION_SIGNALS = net.minecraft.tags.ItemTags.OCCLUDES_VIBRATION_SIGNALS;
+		TagKey<Item> DAMPENS_VIBRATIONS = net.minecraft.tags.ItemTags.DAMPENS_VIBRATIONS;
 		TagKey<Item> CLUSTER_MAX_HARVESTABLES = net.minecraft.tags.ItemTags.CLUSTER_MAX_HARVESTABLES;
+		TagKey<Item> COMPASSES = net.minecraft.tags.ItemTags.COMPASSES;
 	}
 
 	interface Forge

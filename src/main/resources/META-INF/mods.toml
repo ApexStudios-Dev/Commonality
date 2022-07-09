@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[41,)"
 license="GNU General Public License v3.0"
 issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 
@@ -14,12 +14,12 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 [[dependencies.commonality]]
 	modId="forge"
 	mandatory=true
-	versionRange="[40,)"
+	versionRange="[41,)"
 	ordering="AFTER"
 	side="BOTH"
 [[dependencies.commonality]]
 	modId="minecraft"
 	mandatory=true
-	versionRange="[1.18.2,)"
+	versionRange="[1.19,1.20)"
 	ordering="AFTER"
 	side="BOTH"

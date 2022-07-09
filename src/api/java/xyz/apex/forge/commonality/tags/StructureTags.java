@@ -2,9 +2,8 @@ package xyz.apex.forge.commonality.tags;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ConfiguredStructureTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 import xyz.apex.forge.commonality.Mods;
 
@@ -13,29 +12,31 @@ public interface StructureTags
 {
 	interface Vanilla
 	{
-		TagKey<ConfiguredStructureFeature<?, ?>> EYE_OF_ENDER_LOCATED = ConfiguredStructureTags.EYE_OF_ENDER_LOCATED;
-		TagKey<ConfiguredStructureFeature<?, ?>> DOLPHIN_LOCATED = ConfiguredStructureTags.DOLPHIN_LOCATED;
-		TagKey<ConfiguredStructureFeature<?, ?>> ON_WOODLAND_EXPLORER_MAPS = ConfiguredStructureTags.ON_WOODLAND_EXPLORER_MAPS;
-		TagKey<ConfiguredStructureFeature<?, ?>> ON_OCEAN_EXPLORER_MAPS = ConfiguredStructureTags.ON_OCEAN_EXPLORER_MAPS;
-		TagKey<ConfiguredStructureFeature<?, ?>> ON_TREASURE_MAPS = ConfiguredStructureTags.ON_TREASURE_MAPS;
-		TagKey<ConfiguredStructureFeature<?, ?>> VILLAGE = ConfiguredStructureTags.VILLAGE;
-		TagKey<ConfiguredStructureFeature<?, ?>> MINESHAFT = ConfiguredStructureTags.MINESHAFT;
-		TagKey<ConfiguredStructureFeature<?, ?>> SHIPWRECK = ConfiguredStructureTags.SHIPWRECK;
-		TagKey<ConfiguredStructureFeature<?, ?>> RUINED_PORTAL = ConfiguredStructureTags.RUINED_PORTAL;
-		TagKey<ConfiguredStructureFeature<?, ?>> OCEAN_RUIN = ConfiguredStructureTags.OCEAN_RUIN;
+		TagKey<Structure> EYE_OF_ENDER_LOCATED = net.minecraft.tags.StructureTags.EYE_OF_ENDER_LOCATED;
+		TagKey<Structure> DOLPHIN_LOCATED = net.minecraft.tags.StructureTags.DOLPHIN_LOCATED;
+		TagKey<Structure> ON_WOODLAND_EXPLORER_MAPS = net.minecraft.tags.StructureTags.ON_WOODLAND_EXPLORER_MAPS;
+		TagKey<Structure> ON_OCEAN_EXPLORER_MAPS = net.minecraft.tags.StructureTags.ON_OCEAN_EXPLORER_MAPS;
+		TagKey<Structure> ON_TREASURE_MAPS = net.minecraft.tags.StructureTags.ON_TREASURE_MAPS;
+		TagKey<Structure> CATS_SPAWN_IN = net.minecraft.tags.StructureTags.CATS_SPAWN_IN;
+		TagKey<Structure> CATS_SPAWN_AS_BLACK = net.minecraft.tags.StructureTags.CATS_SPAWN_AS_BLACK;
+		TagKey<Structure> VILLAGE = net.minecraft.tags.StructureTags.VILLAGE;
+		TagKey<Structure> MINESHAFT = net.minecraft.tags.StructureTags.MINESHAFT;
+		TagKey<Structure> SHIPWRECK = net.minecraft.tags.StructureTags.SHIPWRECK;
+		TagKey<Structure> RUINED_PORTAL = net.minecraft.tags.StructureTags.RUINED_PORTAL;
+		TagKey<Structure> OCEAN_RUIN = net.minecraft.tags.StructureTags.OCEAN_RUIN;
 	}
 
-	static TagKey<ConfiguredStructureFeature<?, ?>> tag(String namespace, String path)
+	static TagKey<Structure> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(namespace, path));
 	}
 
-	static TagKey<ConfiguredStructureFeature<?, ?>> forgeTag(String path)
+	static TagKey<Structure> forgeTag(String path)
 	{
 		return tag(Mods.FORGE, path);
 	}
 
-	static TagKey<ConfiguredStructureFeature<?, ?>> vanillaTag(String path)
+	static TagKey<Structure> vanillaTag(String path)
 	{
 		return tag(Mods.MINECRAFT, path);
 	}

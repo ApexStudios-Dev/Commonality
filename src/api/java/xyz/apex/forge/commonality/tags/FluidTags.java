@@ -20,6 +20,7 @@ public interface FluidTags
 	interface Forge
 	{
 		TagKey<Fluid> MILK = Tags.Fluids.MILK;
+		TagKey<Fluid> GASEOUS = Tags.Fluids.GASEOUS;
 	}
 
 	static TagKey<Fluid> tag(String namespace, String path)

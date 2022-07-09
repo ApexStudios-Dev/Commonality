@@ -2,7 +2,7 @@ package xyz.apex.forge.commonality;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -32,7 +32,7 @@ final class BlockTagGenerator extends BlockTagsProvider
 
 	// made public for BlockEntityTagGenerator
 	@Override
-	public Tag.Builder getOrCreateRawBuilder(TagKey<Block> tag)
+	public TagBuilder getOrCreateRawBuilder(TagKey<Block> tag)
 	{
 		return super.getOrCreateRawBuilder(tag);
 	}

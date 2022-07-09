@@ -1,12 +1,12 @@
 package xyz.apex.forge.commonality;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.StructureTagsProvider;
+import net.minecraft.data.tags.BannerPatternTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-final class StructureTagGenerator extends StructureTagsProvider
+final class BannerPatternTagGenerator extends BannerPatternTagsProvider
 {
-	public StructureTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
+	BannerPatternTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
 		super(generator, Commonality.ID, fileHelper);
 	}
@@ -19,6 +19,6 @@ final class StructureTagGenerator extends StructureTagsProvider
 	@Override
 	public String getName()
 	{
-		return "Commonality-StructureTags";
+		return "Commonality-BannerPatternTags";
 	}
 }

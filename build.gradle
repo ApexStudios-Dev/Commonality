@@ -1,21 +1,12 @@
-buildscript {
-	repositories {
-		maven { url 'https://maven.minecraftforge.net' }
-		mavenCentral()
-	}
-	dependencies {
-		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-	}
-}
-
 plugins {
+	id 'java'
+	id 'eclipse'
+	id 'idea'
+	id 'maven-publish'
+
+	id 'net.minecraftforge.gradle' version '5.1.+'
 	id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'maven-publish'
 
 version = "${minecraft_version}-${mod_version}"
 group = "${mod_base_package}"
