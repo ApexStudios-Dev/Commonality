@@ -1,12 +1,11 @@
 {{#tags}}
-	## {{name}}
-	{{#commits}}
-		* {{messageTitle}}
-		{{#messageBodyItems}}
-			- {{.}}
-		{{/messageBodyItems}}
-	{{/commits}}
-
+## {{name}}
+{{#commits}}
+* {{messageTitle}}
+{{#messageBodyItems}}
+	- {{.}}
+{{/messageBodyItems}}
+{{/commits}}
 {{/tags}}
 
 *For more details, see [{last_tag}..{current_tag}]({mod_git_url}/compare/{last_tag}...{current_tag})*
