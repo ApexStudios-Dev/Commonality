@@ -12,51 +12,26 @@ The class `xyz.apex.forge.commonality.init.Mods` holds some useful mod id consta
 These classes house all **Vanilla** & **Forge** tags plus any commonality tags used by various mods.
 
 ### Dependency 
-This entire repo can shaded into your mod without any issues using the [**Gradle Shadow plugin**](https://imperceptiblethoughts.com/shadow/).<br>
-But be aware that [**ApexCore**](https://github.com/ApexStudios-Dev/ApexCore) is also shading this into the compiled mod jar with no class relocation,
-so when shading the contents of this mod, please do use the shadow plugin to relocate the classes to some other package.
+When depending on this Mod it is best to make use of Forge's Jar-in-Jar system.
+[See here](https://forge.gemwire.uk/wiki/Jar-in-jar) for overview on how this system works.
+
+Once you have the Jar-in-Jar system setup and working, when compiling your mod you will find an additional Jar is built (`-all.jar`).<br>
+This is the Jar that will contain Commonality, the regular `.jar` is your mod compiled normally without using the Jar-in-Jar system.
 
 <details>
-<summary>Shading into your Project</summary>
+<summary>Setting up Project</summary>
 
-Add the [**Gradle Shadow plugin**](https://imperceptiblethoughts.com/shadow/) to your build script like so:
+Enable the _JarJar_ System, add the following anywhere in your build script.<br>
+Preferably under `archivesBaseName='My Mod Name'`
 
 ```groovy
-plugins {
-	id 'com.github.johnrengelman.shadow' version '7.1.2'
-}
+jarJar.enable()
 ```
 
-Once you have the plugin, it needs to be configured. First add the `shade` configuration,
+Next you must configure the `jarJar` task to run during re-obfuscation.
 
 ```groovy
-configurations {
-	shade
-}
-```
-
-Next you must configure the `shadowJar` task, This is what will shade Commonality into your mod.
-
-```groovy
-shadowJar {
-	configurations = [ project.configurations.shade ]
-	relocate 'xyz.apex.forge.commonality', 'com.mymod.repack.commonality'
-}
-```
-
-Next you must configure the `shadowJar` task to run during re-obfuscation.
-
-```groovy
-artifacts {
-	archives shadowJar
-}
-
-reobf {
-	shadowJar { }
-}
-
-build.dependsOn shadowJar
-build.dependsOn reobfShadowJar
+tasks.jarJar.finalizedBy('reobfJarJar')
 ```
 
 Finally, the dependency itself must be added. First add my maven repository,
@@ -67,38 +42,15 @@ repositories {
 }
 ```
 
-and then the Commonality dependency to the `implementation` and `shade` configurations.
+and then the Commonality dependency
 
 ```groovy
 dependencies {
-	// commonality_version -> Version of commonality to include
-	def commonality_version = '1.0.0'
-	implementation fg.deobf("xyz.apex.forge:commonality:${minecraft_version}-${commonality_version}")
-	shade "xyz.apex.forge:commonality:${minecraft_version}-${commonality_version}"
-}
-```
-
-</details>
-
-**Note:** It is possible to make use of Commonality without having to shading it in its entirety into your mod.<br>
-To do this you must have your mod depend on [**ApexCore**](https://github.com/ApexStudios-Dev/ApexCore) as this mod comes with Commonality pre-shaded into it.
-
-<details>
-<summary>Depending on ApexCore</summary>
-
-First add my maven repository,
-
-```groovy
-repositories {
-	maven { url 'https://maven.apexmods.xyz/' }
-}
-```
-
-and then the ApexCore dependency to the `implementation` configuration.
-
-```groovy
-dependencies {
-	implementation fg.deobf("xyz.apex.forge:apexcore:${minecraft_version}-${apexcore_version}")
+	def commonality_version = '2.0.0' // Version of Commonality to compile against
+	def commonality_version_range = '[2.0.0,3.0.0)' // Version range of Commonality Forge will load at user runtime
+	def minecraft_version = '1.19' // Minecraft version
+	implementation fg.deobf("xyz.apex.forge:commonality-${minecraft_version}:${commonality_version}")
+	jarJar(group: 'xyz.apex.forge', name: "commonality-${minecraft_version}", version: "${commonality_version_range}")
 }
 ```
 
