@@ -105,7 +105,6 @@ public interface BiomeTags
 		TagKey<Biome> IS_DRY_OVERWORLD = Tags.Biomes.IS_DRY_OVERWORLD;
 		TagKey<Biome> IS_DRY_NETHER = Tags.Biomes.IS_DRY_NETHER;
 		TagKey<Biome> IS_DRY_END = Tags.Biomes.IS_DRY_END;
-		TagKey<Biome> IS_SAVANNA = Tags.Biomes.IS_SAVANNA;
 		TagKey<Biome> IS_CONIFEROUS = Tags.Biomes.IS_CONIFEROUS;
 		TagKey<Biome> IS_SPOOKY = Tags.Biomes.IS_SPOOKY;
 		TagKey<Biome> IS_DEAD = Tags.Biomes.IS_DEAD;
@@ -121,14 +120,11 @@ public interface BiomeTags
 		TagKey<Biome> IS_SANDY = Tags.Biomes.IS_SANDY;
 		TagKey<Biome> IS_SNOWY = Tags.Biomes.IS_SNOWY;
 		TagKey<Biome> IS_WASTELAND = Tags.Biomes.IS_WASTELAND;
-		TagKey<Biome> IS_BEACH = Tags.Biomes.IS_BEACH;
 		TagKey<Biome> IS_VOID = Tags.Biomes.IS_VOID;
 		TagKey<Biome> IS_UNDERGROUND = Tags.Biomes.IS_UNDERGROUND;
 		TagKey<Biome> IS_PEAK = Tags.Biomes.IS_PEAK;
 		TagKey<Biome> IS_SLOPE = Tags.Biomes.IS_SLOPE;
 		TagKey<Biome> IS_MOUNTAIN = Tags.Biomes.IS_MOUNTAIN;
-		TagKey<Biome> IS_OVERWORLD = Tags.Biomes.IS_OVERWORLD;
-		TagKey<Biome> IS_END = Tags.Biomes.IS_END;
 	}
 
 	static TagKey<Biome> tag(String namespace, String path)

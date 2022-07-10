@@ -8,7 +8,7 @@ final class CatVariantTagGenerator extends CatVariantTagsProvider
 {
 	CatVariantTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override
