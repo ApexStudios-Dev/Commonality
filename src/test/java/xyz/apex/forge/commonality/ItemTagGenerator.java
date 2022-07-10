@@ -11,7 +11,7 @@ final class ItemTagGenerator extends ItemTagsProvider
 {
 	ItemTagGenerator(DataGenerator generator, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
 	{
-		super(generator, blockTagGenerator, Commonality.ID, fileHelper);
+		super(generator, blockTagGenerator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override

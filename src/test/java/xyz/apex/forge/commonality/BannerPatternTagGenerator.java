@@ -8,7 +8,7 @@ final class BannerPatternTagGenerator extends BannerPatternTagsProvider
 {
 	BannerPatternTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override

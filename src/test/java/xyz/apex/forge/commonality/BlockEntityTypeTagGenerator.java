@@ -17,7 +17,7 @@ final class BlockEntityTypeTagGenerator extends ForgeRegistryTagsProvider<BlockE
 
 	BlockEntityTypeTagGenerator(DataGenerator generator, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
 	{
-		super(generator, ForgeRegistries.BLOCK_ENTITIES, Commonality.ID, fileHelper);
+		super(generator, ForgeRegistries.BLOCK_ENTITIES, Mods.COMMONALITY, fileHelper);
 
 		blockTags = blockTagGenerator::getOrCreateRawBuilder;
 	}

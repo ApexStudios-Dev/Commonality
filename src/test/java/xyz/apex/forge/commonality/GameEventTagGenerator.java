@@ -8,7 +8,7 @@ final class GameEventTagGenerator extends GameEventTagsProvider
 {
 	GameEventTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override

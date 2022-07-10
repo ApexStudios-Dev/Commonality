@@ -4,41 +4,27 @@ plugins {
 	id 'idea'
 	id 'maven-publish'
 
-	id 'net.minecraftforge.gradle' version '5.1.+'
 	id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
+	id 'net.minecraftforge.gradle' version '5.1.+'
+	id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = "${minecraft_version}-${mod_version}"
+version = "${mod_version}"
 group = "${mod_base_package}"
-archivesBaseName = "${mod_id}"
+archivesBaseName = "${mod_id}-${minecraft_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+jarJar.enable()
+
 configurations {
-	api
-}
-
-sourceSets {
-	api {
-		java {
-			srcDirs = [ 'src/api/java' ]
-		}
-
-		resources {
-			srcDirs = [ 'src/api/resources' ]
-		}
-
-		compileClasspath += configurations.getByName("minecraft")
-	}
-
-	main {
-		compileClasspath += sourceSets.api.output
-		runtimeClasspath += sourceSets.api.output
-	}
+	library
+	implementation.extendsFrom library
 }
 
 minecraft {
 	mappings channel: 'official', version: "${minecraft_version}"
+	accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
 	runs {
 		data {
@@ -55,10 +41,23 @@ minecraft {
 			mods {
 				"${mod_id}" {
 					source sourceSets.main
-					source sourceSets.api
+					source sourceSets.test
 				}
 			}
 		}
+	}
+}
+
+minecraft.runs.all {
+	lazyToken('minecraft_classpath') {
+		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
+	}
+}
+
+if(file("./src/main/resources/${mod_id}.mixins.json").exists()) {
+	mixin {
+		add sourceSets.main, "${mod_id}.refmap.json"
+		config "${mod_id}.mixins.json"
 	}
 }
 
@@ -66,42 +65,68 @@ sourceSets.main.resources {
 	srcDir 'src/generated/resources'
 }
 
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven { url 'https://dvs1.progwml6.com/files/maven' }
+	maven { url 'https://maven.tterrag.com/' }
+	maven { url 'https://maven.apexmods.xyz/' }
+
+	maven {
+		url 'https://cursemaven.com'
+
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+
+	maven {
+		url 'https://api.modrinth.com/maven'
+		content {
+			includeGroup 'maven.modrinth'
+		}
+	}
+}
+
 dependencies {
 	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier 'sources'
-	exclude 'META-INF/mods.toml'
-	from sourceSets.api.allJava
-	from sourceSets.api.resources
+	from sourceSets.main.allJava
+	from sourceSets.main.resources
 }
 
-task deobfJar(type: Jar) {
-	classifier 'deobf'
-	exclude '**/*bbmodel'
-	exclude 'META-INF/mods.toml'
-	from sourceSets.api.output
+tasks.jarJar.configure {
+	classifier ''
 }
 
-jar.enabled = false
-
-task realJar(type: Jar) {
-	exclude '**/*bbmodel'
-	exclude 'META-INF/mods.toml'
-	from sourceSets.api.output.classesDirs
-	from sourceSets.api.output.resourcesDir
+jar {
+	classifier 'slim'
+	from sourceSets.main.output.classesDirs
+	from sourceSets.main.output.resourcesDir
 }
 
 artifacts {
-	archives realJar
+	archives jar
 	archives sourcesJar
-	archives deobfJar
+	archives tasks.jarJar
 }
 
 if(System.getenv('GENERATE_CHANGELOG') != null) {
 	def previousGitTag
-	def currentGitTag = "v${mod_version}"
+	def prefix = 'v'
+	def suffix = ''
+
+	if(mod_release_type == 'prerelease') {
+		prefix = 'pv'
+	} else if(mod_release_type == 'alpha' || mod_release_type == 'beta') {
+		suffix = "${mod_release_type}".toUpperCase()
+	}
+
+	def currentGitTag = "${prefix}${mod_version}${suffix}"
 
 	try {
 		def code = new ByteArrayOutputStream()
@@ -129,6 +154,7 @@ if(System.getenv('GENERATE_CHANGELOG') != null) {
 }
 
 tasks.withType(Jar) {
+	from file('CHANGELOG.md')
 	from file('LICENSE')
 
 	manifest {
@@ -139,28 +165,36 @@ tasks.withType(Jar) {
 				'Implementation-Title': "${mod_name}",
 				'Implementation-Version': "${project.version}",
 				'Implementation-Vendor' : "${mod_authors}",
-				'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-				'FMLModType': 'GAMELIBRARY'
+				'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
 		])
+	}
+
+	if(file("./src/main/resources/${mod_id}.mixins.json").exists()) {
+		manifest {
+			attributes 'MixinConfigs': "${mod_id}.mixins.json"
+		}
 	}
 }
 
-realJar.finalizedBy('reobfJar')
+jar.finalizedBy('reobfJar')
+tasks.jarJar.finalizedBy('reobfJarJar')
 
-if(System.getenv('APEX_MODS_MAVEN_USERNAME') != null && System.getenv('APEX_MODS_MAVEN_PASSWORD') != null) {
-	publishing {
-		publications {
-			mavenJava(MavenPublication) {
-				groupId = "${mod_base_package}"
-				artifactId = "${mod_id}"
-				version = "${minecraft_version}-${mod_version}"
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			groupId = "${mod_base_package}"
+			artifactId = "${mod_id}-${minecraft_version}"
+			version = "${mod_version}"
 
-				artifact realJar
-				artifact sourcesJar
-				artifact deobfJar
-			}
+			artifact jar
+			artifact sourcesJar
+			artifact tasks.jarJar
 		}
-		repositories {
+	}
+	repositories {
+		mavenLocal()
+
+		if(System.getenv('APEX_MODS_MAVEN_USERNAME') != null && System.getenv('APEX_MODS_MAVEN_PASSWORD') != null) {
 			maven {
 				name 'ApexMods-Maven'
 				url 'https://apexmodder.jfrog.io/artifactory/mods-maven/'
@@ -170,22 +204,6 @@ if(System.getenv('APEX_MODS_MAVEN_USERNAME') != null && System.getenv('APEX_MODS
 					password System.getenv('APEX_MODS_MAVEN_PASSWORD')
 				}
 			}
-		}
-	}
-} else {
-	publishing {
-		publications {
-			mavenJava(MavenPublication) {
-				groupId = "${mod_base_package}"
-				artifactId = "${mod_id}"
-				version = "${minecraft_version}-${mod_version}"
-				artifact realJar
-				artifact sourcesJar
-				artifact deobfJar
-			}
-		}
-		repositories {
-			mavenLocal()
 		}
 	}
 }
