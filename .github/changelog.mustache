@@ -1,15 +1,11 @@
 {{#tags}}
-## {{name}}
-{{#issues}}
-{{#hasIssue}}
-{{#hasLink}}
-### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-{{/hasLink}}
-{{/hasIssue}}
-{{#commits}}
-* {{messageTitle}}
-{{/commits}}
-{{/issues}}
+	## {{name}}
+	{{#commits}}
+		* {{messageTitle}}
+		{{#messageBodyItems}}
+			- {{.}}
+		{{/messageBodyItems}}
+	{{/commits}}
 
 {{/tags}}
 
