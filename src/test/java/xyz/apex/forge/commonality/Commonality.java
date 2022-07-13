@@ -1,8 +1,8 @@
 package xyz.apex.forge.commonality;
 
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 public final class Commonality
 {
