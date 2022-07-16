@@ -9,9 +9,11 @@ plugins {
 	id 'org.spongepowered.mixin' version '0.7.+'
 }
 
+def IS_EARLY_ACCESS = false
+
 version = "${mod_version}"
 group = "${mod_base_package}"
-archivesBaseName = "${mod_id}-${minecraft_version}"
+archivesBaseName = IS_EARLY_ACCESS ? "${mod_id}-${minecraft_version}-EAP" : "${mod_id}-${minecraft_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -183,7 +185,7 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			groupId = "${mod_base_package}"
-			artifactId = "${mod_id}-${minecraft_version}"
+			artifactId = IS_EARLY_ACCESS ? "${mod_id}-${minecraft_version}-EAP" : "${mod_id}-${minecraft_version}"
 			version = "${mod_version}"
 
 			artifact jar
