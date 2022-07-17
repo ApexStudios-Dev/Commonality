@@ -50,6 +50,68 @@ minecraft {
 	mappings channel: 'official', version: "${minecraft_version}"
 
 	runs {
+		client {
+			taskName 'Client'
+			workingDirectory file('run/client')
+			// property 'forge.logging.markers', 'REGISTRIES'
+			// property 'forge.logging.console.level', 'debug'
+			property 'fml.earlyprogresswindow', 'false'
+			property 'forge.enableGameTest', 'true'
+			property 'forge.enabledGameTestNamespaces', "${mod_id}"
+
+			mods {
+				"${mod_id}" {
+					source sourceSets.main
+					source sourceSets.test
+				}
+			}
+		}
+
+		if(project.hasProperty('mc_uuid') & project.hasProperty('mc_username')) {
+			clientAuthed {
+				parent runs.client
+				taskName 'Client-Authed'
+				args '--uuid', project.getProperty('mc_uuid'), '--username', project.getProperty('mc_username')
+			}
+		}
+
+		server {
+			taskName 'Server'
+			workingDirectory file('run/server')
+			// property 'forge.logging.markers', 'REGISTRIES'
+			// property 'forge.logging.console.level', 'debug'
+			property 'fml.earlyprogresswindow', 'false'
+			property 'forge.enableGameTest', 'true'
+			property 'forge.enabledGameTestNamespaces', "${mod_id}"
+			args 'nogui'
+
+			mods {
+				"${mod_id}" {
+					source sourceSets.main
+					source sourceSets.test
+				}
+			}
+		}
+
+		gameTestServer {
+			taskName 'GameTest-Server'
+			workingDirectory file('run/server')
+			// property 'forge.logging.markers', 'REGISTRIES'
+			// property 'forge.logging.console.level', 'debug'
+			property 'fml.earlyprogresswindow', 'false'
+			property 'forge.enableGameTest', 'true'
+			property 'forge.enabledGameTestNamespaces', "${mod_id}"
+			args 'nogui'
+			forceExit false
+
+			mods {
+				"${mod_id}" {
+					source sourceSets.main
+					source sourceSets.test
+				}
+			}
+		}
+
 		data {
 			taskName 'Data'
 			workingDirectory file('run/client')
