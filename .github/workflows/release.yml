@@ -222,8 +222,8 @@ jobs:
           name: jars
           path: ./build/libs
 
-  publish_maven:
-    name: Publish to ModsMaven
+  publish:
+    name: Publish Mod
 
     strategy:
       matrix:
@@ -231,6 +231,7 @@ jobs:
         java: [ 17 ]
 
     runs-on: ${{ matrix.os }}
+    needs: [ vars, changelog, compile ]
 
     steps:
       - name: Install JQ
@@ -239,6 +240,12 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      - name: Download Changelog
+        uses: actions/download-artifact@v2
+        with:
+          name: changelog
+          path: .github
 
       - name: Setup Java
         uses: actions/setup-java@v2
@@ -275,7 +282,7 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' && hashFiles('./render_types.sh') != '' }}
         run: ./render_types.sh
 
-      - name: Publish Mod to Maven
+      - name: Publish to CurseForge, Modrinth & Maven
         uses: burrunan/gradle-cache-action@v1
         with:
           arguments: publish
@@ -300,35 +307,11 @@ jobs:
           rm -f ~/.gradle/caches/modules-2/modules-2.lock
           rm -f ~/.gradle/caches/modules-2/gc.properties
 
-  publish_github:
-    name: Publish Mod to GitHub
-
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-
-    needs: [ vars, compile ]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Download Changelog
-        uses: actions/download-artifact@v2
-        with:
-          name: changelog
-          path: .github
-
-      - name: Download Mod Jars
-        uses: actions/download-artifact@v2
-        with:
-          name: jars
-          path: ./build/libs
-
       - name: Load Changelog File
         id: changelog
         run: echo ::set-output name=changelog::$(cat .github/CHANGELOG.md)
 
-      - name: Create GitHub Release
+      - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ needs.vars.outputs.tag_current }}
@@ -347,7 +330,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
 
-    needs: [ vars, changelog, compile, publish_maven, publish_github ]
+    needs: [ vars, changelog, compile, publish ]
 
     runs-on: ${{ matrix.os }}
 
