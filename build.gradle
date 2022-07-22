@@ -28,6 +28,25 @@ minecraft {
 	accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
 	runs {
+		gameTestServer {
+			taskName 'GameTest-Server'
+			workingDirectory file('run/gametest-server')
+			// property 'forge.logging.markers', 'REGISTRIES'
+			// property 'forge.logging.console.level', 'debug'
+			property 'fml.earlyprogresswindow', 'false'
+			property 'forge.enableGameTest', 'true'
+			property 'forge.enabledGameTestNamespaces', "${mod_id}"
+			args 'nogui'
+			forceExit false
+
+			mods {
+				"${mod_id}" {
+					source sourceSets.main
+					source sourceSets.test
+				}
+			}
+		}
+
 		data {
 			taskName 'Data'
 			workingDirectory file('run/client')
