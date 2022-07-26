@@ -38,7 +38,7 @@ Finally, the dependency itself must be added. First add my maven repository,
 
 ```groovy
 repositories {
-	maven { url 'https://maven.apexmods.xyz/' }
+	maven { url 'https://maven.apexstudios.dev/' }
 }
 ```
 
