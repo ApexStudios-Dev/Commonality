@@ -43,6 +43,20 @@ final class ItemTagGenerator extends ItemTagsProvider
 				ItemTags.Common.TOOLS_HOE,
 				ItemTags.Common.TOOLS_WRENCH
 		);
+
+		tag(ItemTags.Common.ITEM_GROUPS).addTags(
+				ItemTags.Common.ITEM_GROUPS_BUILDING_BLOCKS,
+				ItemTags.Common.ITEM_GROUPS_DECORATIONS,
+				ItemTags.Common.ITEM_GROUPS_REDSTONE,
+				ItemTags.Common.ITEM_GROUPS_TRANSPORTATION,
+				ItemTags.Common.ITEM_GROUPS_MISC,
+				ItemTags.Common.ITEM_GROUPS_FOOD,
+				ItemTags.Common.ITEM_GROUPS_TOOLS,
+				ItemTags.Common.ITEM_GROUPS_COMBAT,
+				ItemTags.Common.ITEM_GROUPS_BREWING
+		);
+
+		ItemTags.registerItemGroupTags(Mods.MINECRAFT, this::tag);
 	}
 
 	@Override

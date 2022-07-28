@@ -1,12 +1,19 @@
 package xyz.apex.forge.commonality.tags;
 
+import com.google.common.collect.ImmutableMap;
+
 import net.minecraft.core.Registry;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import xyz.apex.forge.commonality.Mods;
+
+import java.util.function.Function;
 
 @SuppressWarnings("ALL")
 public interface ItemTags
@@ -281,6 +288,18 @@ public interface ItemTags
 		TagKey<Item> TOOLS_SHOVEL = forgeTag("tools/shovel");
 		TagKey<Item> TOOLS_HOE = forgeTag("tools/hoe");
 		TagKey<Item> TOOLS_WRENCH = forgeTag("tools/wrench");
+
+		// Creative Mode Tabs
+		TagKey<Item> ITEM_GROUPS = tag(Mods.COMMONALITY, "item_groups");
+		TagKey<Item> ITEM_GROUPS_BUILDING_BLOCKS = tag(Mods.COMMONALITY, "item_groups/building_blocks");
+		TagKey<Item> ITEM_GROUPS_DECORATIONS = tag(Mods.COMMONALITY, "item_groups/decorations");
+		TagKey<Item> ITEM_GROUPS_REDSTONE = tag(Mods.COMMONALITY, "item_groups/redstone");
+		TagKey<Item> ITEM_GROUPS_TRANSPORTATION = tag(Mods.COMMONALITY, "item_groups/transportation");
+		TagKey<Item> ITEM_GROUPS_MISC = tag(Mods.COMMONALITY, "item_groups/misc");
+		TagKey<Item> ITEM_GROUPS_FOOD = tag(Mods.COMMONALITY, "item_groups/food");
+		TagKey<Item> ITEM_GROUPS_TOOLS = tag(Mods.COMMONALITY, "item_groups/tools");
+		TagKey<Item> ITEM_GROUPS_COMBAT = tag(Mods.COMMONALITY, "item_groups/combat");
+		TagKey<Item> ITEM_GROUPS_BREWING = tag(Mods.COMMONALITY, "item_groups/brewing");
 	}
 
 	static TagKey<Item> tag(String namespace, String path)
@@ -296,5 +315,83 @@ public interface ItemTags
 	static TagKey<Item> vanillaTag(String path)
 	{
 		return tag(Mods.MINECRAFT, path);
+	}
+
+	/**
+	 * Register Creative Mode Tab <-> Item Tag entries for all Items from a given mod
+	 * <p>
+	 * Call from your ItemTagsProvider#addTags method<br>
+	 * <pre>{@code ItemTags.registerItemGroupTags("my_mod_id", this::tag)}</pre>
+	 *
+	 * If you are using Registrate, you can do something similar to the following<br>
+	 * <pre>{@code MyMod.registrate().addDataGenerator(ProviderType.ITEM_TAGS, provider -> ItemTags.registerItemGroupTags("my_mod_id", provider::tag));}</pre>
+	 *
+	 * @param modId Mod ID to register Creative Mode Tab ItemTags for
+	 * @param tagBuilder Factory method used to obtain Tag Builder instances (This should be a method reference to {@link TagsProvider#tag(TagKey)})
+	 */
+	static void registerItemGroupTags(String modId, Function<TagKey<Item>, TagsProvider.TagAppender<Item>> tagBuilder)
+	{
+		var itemGroupTagMap = ImmutableMap.of(
+				CreativeModeTab.TAB_BUILDING_BLOCKS,
+				Common.ITEM_GROUPS_BUILDING_BLOCKS,
+
+				CreativeModeTab.TAB_DECORATIONS,
+				Common.ITEM_GROUPS_DECORATIONS,
+
+				CreativeModeTab.TAB_REDSTONE,
+				Common.ITEM_GROUPS_REDSTONE,
+
+				CreativeModeTab.TAB_TRANSPORTATION,
+				Common.ITEM_GROUPS_TRANSPORTATION,
+
+				CreativeModeTab.TAB_MISC,
+				Common.ITEM_GROUPS_MISC,
+
+				CreativeModeTab.TAB_FOOD,
+				Common.ITEM_GROUPS_FOOD,
+
+				CreativeModeTab.TAB_TOOLS,
+				Common.ITEM_GROUPS_TOOLS,
+
+				CreativeModeTab.TAB_COMBAT,
+				Common.ITEM_GROUPS_COMBAT,
+
+				CreativeModeTab.TAB_BREWING,
+				Common.ITEM_GROUPS_BREWING
+		);
+
+		for(var item : ForgeRegistries.ITEMS)
+		{
+			var registryName = ForgeRegistries.ITEMS.getKey(item);
+
+			if(registryName != null && registryName.getNamespace().equals(modId))
+			{
+				var itemGroup = item.getItemCategory();
+
+				if(itemGroup != null)
+				{
+					var tag = itemGroupTagMap.get(itemGroup);
+
+					if(tag == null)
+						continue;
+
+					tagBuilder.apply(tag).add(item);
+				}
+
+				for(var otherItemGroup : item.getCreativeTabs())
+				{
+					if(otherItemGroup != null)
+					{
+						if(itemGroup != null && itemGroup == otherItemGroup)
+							continue;
+
+						var tag = itemGroupTagMap.get(otherItemGroup);
+
+						if(tag != null)
+							tagBuilder.apply(tag).add(item);
+					}
+				}
+			}
+		}
 	}
 }
