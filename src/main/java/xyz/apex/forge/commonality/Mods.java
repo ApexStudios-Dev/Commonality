@@ -15,15 +15,14 @@ public interface Mods
 
 	String APEX_CORE = "apexcore";
 	String COMMONALITY = "commonality";
-	String ASHEN_NETHER = "ashennether";
 	String FANTASY_DICE = "fantasydice";
 	String FANTASY_FURNITURE = "fantasyfurniture";
 	String INFUSED_FOODS = "infusedfoods";
 	String ITEM_RESISTANCE = "itemresistance";
-	String REGISTRATOR = "registrator";
 	
 	String CTM = "ctm";
 	String JEI = "jei";
+	String GECKO_LIB = "geckolib3";
 
 	@Mod(COMMONALITY)
 	final class CommonalityMod
