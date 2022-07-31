@@ -2,7 +2,7 @@
 # Only required for Covers1624's WorkspaceTool to function correctly
 # Should be excluded from ANY compiled artifacts
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[42,)"
 license="GNU General Public License v3.0"
 
 [[mods]]
