@@ -95,11 +95,8 @@ jobs:
   # Publish jars to various sources
   publish:
     name: Publish Project
-    uses: ApexStudios-Dev/.github/.github/workflows/call_publish.yml@master
+    uses: ApexStudios-Dev/.github/.github/workflows/call_publish_generic.yml@master
     needs: [ compile, changelog ]
-    secrets:
-      MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-      CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
 
   # Dispatch mod publish notifications
   notify:
