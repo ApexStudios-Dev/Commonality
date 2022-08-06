@@ -11,7 +11,7 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 	displayURL="https://github.com/ApexStudios-Dev/Commonality"
 	# logo="banner.png"
 	credits="Apex - Programming"
-	authors="Apex"
+	authors="ApexStudios"
 	description="Mod which houses common elements used by various mods."
 	displayTest="MATCH_VERSION"
 
