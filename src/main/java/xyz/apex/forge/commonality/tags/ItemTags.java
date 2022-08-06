@@ -271,22 +271,28 @@ public interface ItemTags
 		TagKey<Item> STORAGE_BLOCKS_RAW_IRON = Tags.Items.STORAGE_BLOCKS_RAW_IRON;
 		TagKey<Item> STORAGE_BLOCKS_REDSTONE = Tags.Items.STORAGE_BLOCKS_REDSTONE;
 		TagKey<Item> STRING = Tags.Items.STRING;
+		TagKey<Item> TOOLS = Tags.Items.TOOLS;
+		TagKey<Item> TOOLS_SWORDS = Tags.Items.TOOLS_SWORDS;
+		TagKey<Item> TOOLS_AXES = Tags.Items.TOOLS_AXES;
+		TagKey<Item> TOOLS_PICKAXES = Tags.Items.TOOLS_PICKAXES;
+		TagKey<Item> TOOLS_SHOVELS = Tags.Items.TOOLS_SHOVELS;
+		TagKey<Item> TOOLS_HOES = Tags.Items.TOOLS_HOES;
+		TagKey<Item> TOOLS_SHIELDS = Tags.Items.TOOLS_SHIELDS;
+		TagKey<Item> TOOLS_BOWS = Tags.Items.TOOLS_BOWS;
+		TagKey<Item> TOOLS_CROSSBOWS = Tags.Items.TOOLS_CROSSBOWS;
+		TagKey<Item> TOOLS_FISHING_RODS = Tags.Items.TOOLS_FISHING_RODS;
+		TagKey<Item> TOOLS_TRIDENTS = Tags.Items.TOOLS_TRIDENTS;
+		TagKey<Item> ARMORS = Tags.Items.ARMORS;
+		TagKey<Item> ARMORS_HELMETS = Tags.Items.ARMORS_HELMETS;
+		TagKey<Item> ARMORS_CHESTPLATES = Tags.Items.ARMORS_CHESTPLATES;
+		TagKey<Item> ARMORS_LEGGINGS = Tags.Items.ARMORS_LEGGINGS;
+		TagKey<Item> ARMORS_BOOTS = Tags.Items.ARMORS_BOOTS;
 	}
 
 	interface Common
 	{
 		TagKey<Item> QUARTZ_ORES = vanillaTag("quartz_ores");
 
-		TagKey<Item> WEAPONS = forgeTag("weapons");
-		TagKey<Item> WEAPONS_BOW = forgeTag("weapons/bow");
-		TagKey<Item> WEAPONS_CROSSBOW = forgeTag("weapons/crossbow");
-		TagKey<Item> WEAPONS_SWORD = forgeTag("weapons/sword");
-
-		TagKey<Item> TOOLS = forgeTag("tools");
-		TagKey<Item> TOOLS_PICKAXE = forgeTag("tools/pickaxe");
-		TagKey<Item> TOOLS_AXE = forgeTag("tools/axe");
-		TagKey<Item> TOOLS_SHOVEL = forgeTag("tools/shovel");
-		TagKey<Item> TOOLS_HOE = forgeTag("tools/hoe");
 		TagKey<Item> TOOLS_WRENCH = forgeTag("tools/wrench");
 
 		// Creative Mode Tabs
