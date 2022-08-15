@@ -12,7 +12,7 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 	# logo="banner.png"
 	credits="Apex - Programming"
 	authors="ApexStudios"
-	description="Mod which houses common elements used by various mods."
+	description="Library which houses various common use game elements used throughout various Minecraft Forge Mods."
 	displayTest="MATCH_VERSION"
 
 [[dependencies.commonality]]
