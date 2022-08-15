@@ -14,7 +14,7 @@ final class BlockTagGenerator extends BlockTagsProvider
 {
 	BlockTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override

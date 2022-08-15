@@ -20,6 +20,6 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 [[dependencies.commonality]]
 	modId="minecraft"
 	mandatory=true
-	versionRange="[1.18.2,)"
+	versionRange="[1.18.2,1.19)"
 	ordering="AFTER"
 	side="BOTH"

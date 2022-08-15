@@ -4,6 +4,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.common.Tags;
 
 import xyz.apex.forge.commonality.Mods;
 
@@ -54,6 +55,53 @@ public interface BiomeTags
 		TagKey<Biome> HAS_BASTION_REMNANT = net.minecraft.tags.BiomeTags.HAS_BASTION_REMNANT;
 		TagKey<Biome> HAS_RUINED_PORTAL_NETHER = net.minecraft.tags.BiomeTags.HAS_RUINED_PORTAL_NETHER;
 		TagKey<Biome> HAS_END_CITY = net.minecraft.tags.BiomeTags.HAS_END_CITY;
+	}
+
+	interface Forge
+	{
+		TagKey<Biome> IS_HOT = Tags.Biomes.IS_HOT;
+		TagKey<Biome> IS_HOT_OVERWORLD = Tags.Biomes.IS_HOT_OVERWORLD;
+		TagKey<Biome> IS_HOT_NETHER = Tags.Biomes.IS_HOT_NETHER;
+		TagKey<Biome> IS_HOT_END = Tags.Biomes.IS_HOT_END;
+		TagKey<Biome> IS_COLD = Tags.Biomes.IS_COLD;
+		TagKey<Biome> IS_COLD_OVERWORLD = Tags.Biomes.IS_COLD_OVERWORLD;
+		TagKey<Biome> IS_COLD_NETHER = Tags.Biomes.IS_COLD_NETHER;
+		TagKey<Biome> IS_COLD_END = Tags.Biomes.IS_COLD_END;
+		TagKey<Biome> IS_SPARSE = Tags.Biomes.IS_SPARSE;
+		TagKey<Biome> IS_SPARSE_OVERWORLD = Tags.Biomes.IS_SPARSE_OVERWORLD;
+		TagKey<Biome> IS_SPARSE_NETHER = Tags.Biomes.IS_SPARSE_NETHER;
+		TagKey<Biome> IS_SPARSE_END = Tags.Biomes.IS_SPARSE_END;
+		TagKey<Biome> IS_DENSE = Tags.Biomes.IS_DENSE;
+		TagKey<Biome> IS_DENSE_OVERWORLD = Tags.Biomes.IS_DENSE_OVERWORLD;
+		TagKey<Biome> IS_DENSE_NETHER = Tags.Biomes.IS_DENSE_NETHER;
+		TagKey<Biome> IS_DENSE_END = Tags.Biomes.IS_DENSE_END;
+		TagKey<Biome> IS_WET = Tags.Biomes.IS_WET;
+		TagKey<Biome> IS_WET_OVERWORLD = Tags.Biomes.IS_WET_OVERWORLD;
+		TagKey<Biome> IS_WET_NETHER = Tags.Biomes.IS_WET_NETHER;
+		TagKey<Biome> IS_WET_END = Tags.Biomes.IS_WET_END;
+		TagKey<Biome> IS_DRY = Tags.Biomes.IS_DRY;
+		TagKey<Biome> IS_DRY_OVERWORLD = Tags.Biomes.IS_DRY_OVERWORLD;
+		TagKey<Biome> IS_DRY_NETHER = Tags.Biomes.IS_DRY_NETHER;
+		TagKey<Biome> IS_DRY_END = Tags.Biomes.IS_DRY_END;
+		TagKey<Biome> IS_CONIFEROUS = Tags.Biomes.IS_CONIFEROUS;
+		TagKey<Biome> IS_SPOOKY = Tags.Biomes.IS_SPOOKY;
+		TagKey<Biome> IS_DEAD = Tags.Biomes.IS_DEAD;
+		TagKey<Biome> IS_LUSH = Tags.Biomes.IS_LUSH;
+		TagKey<Biome> IS_MUSHROOM = Tags.Biomes.IS_MUSHROOM;
+		TagKey<Biome> IS_MAGICAL = Tags.Biomes.IS_MAGICAL;
+		TagKey<Biome> IS_RARE = Tags.Biomes.IS_RARE;
+		TagKey<Biome> IS_PLATEAU = Tags.Biomes.IS_PLATEAU;
+		TagKey<Biome> IS_MODIFIED = Tags.Biomes.IS_MODIFIED;
+		TagKey<Biome> IS_WATER = Tags.Biomes.IS_WATER;
+		TagKey<Biome> IS_PLAINS = Tags.Biomes.IS_PLAINS;
+		TagKey<Biome> IS_SWAMP = Tags.Biomes.IS_SWAMP;
+		TagKey<Biome> IS_SANDY = Tags.Biomes.IS_SANDY;
+		TagKey<Biome> IS_SNOWY = Tags.Biomes.IS_SNOWY;
+		TagKey<Biome> IS_WASTELAND = Tags.Biomes.IS_WASTELAND;
+		TagKey<Biome> IS_VOID = Tags.Biomes.IS_VOID;
+		TagKey<Biome> IS_UNDERGROUND = Tags.Biomes.IS_UNDERGROUND;
+		TagKey<Biome> IS_PEAK = Tags.Biomes.IS_PEAK;
+		TagKey<Biome> IS_SLOPE = Tags.Biomes.IS_SLOPE;
 	}
 
 	static TagKey<Biome> tag(String namespace, String path)

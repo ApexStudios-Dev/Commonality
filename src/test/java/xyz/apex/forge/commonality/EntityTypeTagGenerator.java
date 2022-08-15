@@ -13,7 +13,7 @@ final class EntityTypeTagGenerator extends EntityTypeTagsProvider
 {
 	EntityTypeTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override

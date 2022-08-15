@@ -8,7 +8,7 @@ final class FluidTagGenerator extends FluidTagsProvider
 {
 	FluidTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override

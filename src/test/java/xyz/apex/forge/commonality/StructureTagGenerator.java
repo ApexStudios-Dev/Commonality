@@ -8,7 +8,7 @@ final class StructureTagGenerator extends ConfiguredStructureTagsProvider
 {
 	public StructureTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
 	{
-		super(generator, Commonality.ID, fileHelper);
+		super(generator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override
