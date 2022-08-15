@@ -7,9 +7,13 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 	modId="commonality"
 	version="${file.jarVersion}"
 	displayName="Commonality"
-	credits="Apex"
-	authors="Apex"
-	description="Simple testing mod"
+	updateJSONURL="https://raw.githubusercontent.com/ApexStudios-Dev/Version/master/commonality.json"
+	displayURL="https://github.com/ApexStudios-Dev/Commonality"
+	# logo="banner.png"
+	credits="Apex - Programming"
+	authors="ApexStudios"
+	description="Library which houses various common use game elements used throughout various Minecraft Forge Mods."
+	displayTest="MATCH_VERSION"
 
 [[dependencies.commonality]]
 	modId="forge"
@@ -17,9 +21,13 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Commonality/issues"
 	versionRange="[40.1.60,41)"
 	ordering="AFTER"
 	side="BOTH"
+	[dependencies.commonality.custom.mc-publish]
+		ignore=true
 [[dependencies.commonality]]
 	modId="minecraft"
 	mandatory=true
 	versionRange="[1.18.2,1.19)"
 	ordering="AFTER"
 	side="BOTH"
+	[dependencies.commonality.custom.mc-publish]
+		ignore=true
