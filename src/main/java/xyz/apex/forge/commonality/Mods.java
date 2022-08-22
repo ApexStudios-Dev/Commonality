@@ -17,6 +17,7 @@ public interface Mods
 	String COMMONALITY = "commonality";
 	String FANTASY_DICE = "fantasydice";
 	String FANTASY_FURNITURE = "fantasyfurniture";
+	String FANTASY_MOUNTS = "fantasymounts";
 	String INFUSED_FOODS = "infusedfoods";
 	String ITEM_RESISTANCE = "itemresistance";
 	
