@@ -2,6 +2,7 @@ package xyz.apex.forge.commonality;
 
 import com.mojang.logging.LogUtils;
 import org.apache.logging.log4j.LogManager;
+import org.jetbrains.annotations.ApiStatus;
 
 import net.minecraftforge.data.loading.DatagenModLoader;
 import net.minecraftforge.fml.common.Mod;
@@ -18,10 +19,15 @@ public interface Mods
 	String COMMONALITY = "commonality";
 	String FANTASY_DICE = "fantasydice";
 	String FANTASY_FURNITURE = "fantasyfurniture";
-	String FANTASY_MOUNTS = "fantasymounts";
+	@ApiStatus.ScheduledForRemoval(inVersion = "1.20") @Deprecated(forRemoval = true) String FANTASY_MOUNTS = "fantasymounts";
 	String INFUSED_FOODS = "infusedfoods";
 	String ITEM_RESISTANCE = "itemresistance";
-	
+
+	String XYCRAFT = "xycraft";
+	String XYCRAFT_WORLD = "xycraft_world";
+	String XYCRAFT_OVERRIDE = "xycraft_override";
+	String XYCRAFT_CORE = "xycraft_core";
+
 	String CTM = "ctm";
 	String JEI = "jei";
 	String GECKO_LIB = "geckolib3";
