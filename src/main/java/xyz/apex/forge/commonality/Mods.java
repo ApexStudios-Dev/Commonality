@@ -20,6 +20,7 @@ public interface Mods
 	String FANTASY_DICE = "fantasydice";
 	String FANTASY_FURNITURE = "fantasyfurniture";
 	@ApiStatus.ScheduledForRemoval(inVersion = "1.20") @Deprecated(forRemoval = true) String FANTASY_MOUNTS = "fantasymounts";
+	String FANTASY_BESTIARY = "fantasybestiary";
 	String INFUSED_FOODS = "infusedfoods";
 	String ITEM_RESISTANCE = "itemresistance";
 
