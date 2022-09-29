@@ -8,6 +8,8 @@ import net.minecraftforge.data.loading.DatagenModLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.versions.forge.ForgeVersion;
 
+import xyz.apex.forge.commonality.trust.TrustManager;
+
 import java.lang.reflect.InvocationTargetException;
 
 public interface Mods
@@ -41,6 +43,8 @@ public interface Mods
 			// line exists to print current versions & to ensure Constants class is not referencing any client only code
 			// would crash dedicated servers if was referencing client code
 			LogManager.getLogger().info("Running Minecraft '{}', & Forge '{}' on Java '{}'", Constants.Common.VERSION_STRING, ForgeVersion.getVersion(), Constants.Common.JAVA_VERSION);
+
+			TrustManager.throwIfUntrusted(COMMONALITY);
 
 			if(DatagenModLoader.isRunningDataGen())
 			{
