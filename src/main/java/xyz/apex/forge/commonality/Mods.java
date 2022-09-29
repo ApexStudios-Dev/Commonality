@@ -6,6 +6,8 @@ import net.minecraftforge.data.loading.DatagenModLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.versions.forge.ForgeVersion;
 
+import xyz.apex.forge.commonality.trust.TrustManager;
+
 import java.lang.reflect.InvocationTargetException;
 
 public interface Mods
@@ -29,6 +31,8 @@ public interface Mods
 	{
 		public CommonalityMod()
 		{
+			TrustManager.throwIfUntrusted(COMMONALITY);
+
 			if(DatagenModLoader.isRunningDataGen())
 			{
 				try
