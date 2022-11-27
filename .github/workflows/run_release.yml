@@ -86,9 +86,6 @@ jobs:
     name: Publish Project
     uses: ApexStudios-Dev/.github/.github/workflows/call_publish_generic.yml@master
     needs: [ vars, compile, changelog ]
-    secrets:
-      MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-      CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
     with:
       mod_name: ${{ needs.vars.outputs.mod_name }}
       mod_version: ${{ needs.vars.outputs.mod_version }}
