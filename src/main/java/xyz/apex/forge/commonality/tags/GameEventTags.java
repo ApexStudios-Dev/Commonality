@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -21,7 +21,7 @@ public interface GameEventTags
 
 	static TagKey<GameEvent> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.GAME_EVENT_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.GAME_EVENT, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<GameEvent> forgeTag(String path)

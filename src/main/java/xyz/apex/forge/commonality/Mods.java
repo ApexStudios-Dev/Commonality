@@ -2,7 +2,6 @@ package xyz.apex.forge.commonality;
 
 import com.mojang.logging.LogUtils;
 import org.apache.logging.log4j.LogManager;
-import org.jetbrains.annotations.ApiStatus;
 
 import net.minecraftforge.data.loading.DatagenModLoader;
 import net.minecraftforge.fml.common.Mod;
@@ -21,8 +20,6 @@ public interface Mods
 	String COMMONALITY = "commonality";
 	String FANTASY_DICE = "fantasydice";
 	String FANTASY_FURNITURE = "fantasyfurniture";
-	@ApiStatus.ScheduledForRemoval(inVersion = "1.20") @Deprecated(forRemoval = true) String FANTASY_MOUNTS = "fantasymounts";
-	@ApiStatus.Experimental String FANTASY_BESTIARY = "fantasybestiary";
 	String INFUSED_FOODS = "infusedfoods";
 	String ITEM_RESISTANCE = "itemresistance";
 

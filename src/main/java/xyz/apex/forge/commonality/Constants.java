@@ -39,7 +39,6 @@ public interface Constants
 		boolean SNAPSHOT = SharedConstants.SNAPSHOT;
 		int WORLD_VERSION = SharedConstants.WORLD_VERSION;
 		String VERSION_STRING = SharedConstants.VERSION_STRING;
-		String RELEASE_TARGET = SharedConstants.RELEASE_TARGET;
 		int RESOURCE_PACK_FORMAT = SharedConstants.RESOURCE_PACK_FORMAT;
 		int DATA_PACK_FORMAT = SharedConstants.DATA_PACK_FORMAT;
 		int MAX_CHAT_LENGTH = SharedConstants.MAX_CHAT_LENGTH;

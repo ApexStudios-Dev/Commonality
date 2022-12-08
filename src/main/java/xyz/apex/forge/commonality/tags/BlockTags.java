@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -41,6 +41,7 @@ public interface BlockTags
 		TagKey<Block> MANGROVE_LOGS = net.minecraft.tags.BlockTags.MANGROVE_LOGS;
 		TagKey<Block> CRIMSON_STEMS = net.minecraft.tags.BlockTags.CRIMSON_STEMS;
 		TagKey<Block> WARPED_STEMS = net.minecraft.tags.BlockTags.WARPED_STEMS;
+		TagKey<Block> BAMBOO_BLOCKS = net.minecraft.tags.BlockTags.BAMBOO_BLOCKS;
 		TagKey<Block> WART_BLOCKS = net.minecraft.tags.BlockTags.WART_BLOCKS;
 		TagKey<Block> BANNERS = net.minecraft.tags.BlockTags.BANNERS;
 		TagKey<Block> SAND = net.minecraft.tags.BlockTags.SAND;
@@ -65,7 +66,6 @@ public interface BlockTags
 		TagKey<Block> COAL_ORES = net.minecraft.tags.BlockTags.COAL_ORES;
 		TagKey<Block> EMERALD_ORES = net.minecraft.tags.BlockTags.EMERALD_ORES;
 		TagKey<Block> COPPER_ORES = net.minecraft.tags.BlockTags.COPPER_ORES;
-		TagKey<Block> NON_FLAMMABLE_WOOD = net.minecraft.tags.BlockTags.NON_FLAMMABLE_WOOD;
 		TagKey<Block> CANDLES = net.minecraft.tags.BlockTags.CANDLES;
 		TagKey<Block> DIRT = net.minecraft.tags.BlockTags.DIRT;
 		TagKey<Block> TERRACOTTA = net.minecraft.tags.BlockTags.TERRACOTTA;
@@ -84,6 +84,10 @@ public interface BlockTags
 		TagKey<Block> STANDING_SIGNS = net.minecraft.tags.BlockTags.STANDING_SIGNS;
 		TagKey<Block> WALL_SIGNS = net.minecraft.tags.BlockTags.WALL_SIGNS;
 		TagKey<Block> SIGNS = net.minecraft.tags.BlockTags.SIGNS;
+		TagKey<Block> CEILING_HANGING_SIGNS = net.minecraft.tags.BlockTags.CEILING_HANGING_SIGNS;
+		TagKey<Block> WALL_HANGING_SIGNS = net.minecraft.tags.BlockTags.WALL_HANGING_SIGNS;
+		TagKey<Block> ALL_HANGING_SIGNS = net.minecraft.tags.BlockTags.ALL_HANGING_SIGNS;
+		TagKey<Block> ALL_SIGNS = net.minecraft.tags.BlockTags.ALL_SIGNS;
 		TagKey<Block> DRAGON_IMMUNE = net.minecraft.tags.BlockTags.DRAGON_IMMUNE;
 		TagKey<Block> DRAGON_TRANSPARENT = net.minecraft.tags.BlockTags.DRAGON_TRANSPARENT;
 		TagKey<Block> WITHER_IMMUNE = net.minecraft.tags.BlockTags.WITHER_IMMUNE;
@@ -165,12 +169,14 @@ public interface BlockTags
 		TagKey<Block> SNAPS_GOAT_HORN = net.minecraft.tags.BlockTags.SNAPS_GOAT_HORN;
 		TagKey<Block> SNOW_LAYER_CANNOT_SURVIVE_ON = net.minecraft.tags.BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON;
 		TagKey<Block> SNOW_LAYER_CAN_SURVIVE_ON = net.minecraft.tags.BlockTags.SNOW_LAYER_CAN_SURVIVE_ON;
+		TagKey<Block> INVALID_SPAWN_INSIDE = net.minecraft.tags.BlockTags.INVALID_SPAWN_INSIDE;
 	}
-	
+
 	interface Forge
 	{
 		TagKey<Block> BARRELS = Tags.Blocks.BARRELS;
 		TagKey<Block> BARRELS_WOODEN = Tags.Blocks.BARRELS_WOODEN;
+		TagKey<Block> BOOKSHELVES = Tags.Blocks.BOOKSHELVES;
 		TagKey<Block> CHESTS = Tags.Blocks.CHESTS;
 		TagKey<Block> CHESTS_ENDER = Tags.Blocks.CHESTS_ENDER;
 		TagKey<Block> CHESTS_TRAPPED = Tags.Blocks.CHESTS_TRAPPED;
@@ -279,12 +285,12 @@ public interface BlockTags
 	{
 		TagKey<Block> QUARTZ_ORES = vanillaTag("quartz_ores");
 	}
-	
+
 	static TagKey<Block> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.BLOCK, new ResourceLocation(namespace, path));
 	}
-	
+
 	static TagKey<Block> forgeTag(String path)
 	{
 		return tag(Mods.FORGE, path);

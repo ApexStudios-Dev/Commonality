@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
@@ -40,7 +40,7 @@ public interface EntityTags
 
 	static TagKey<EntityType<?>> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<EntityType<?>> forgeTag(String path)

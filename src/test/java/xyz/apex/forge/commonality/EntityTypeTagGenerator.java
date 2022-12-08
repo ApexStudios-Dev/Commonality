@@ -1,22 +1,25 @@
 package xyz.apex.forge.commonality;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import xyz.apex.forge.commonality.tags.EntityTags;
 
+import java.util.concurrent.CompletableFuture;
+
 @SuppressWarnings("unchecked")
 final class EntityTypeTagGenerator extends EntityTypeTagsProvider
 {
-	EntityTypeTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
+	EntityTypeTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper fileHelper)
 	{
-		super(generator, Mods.COMMONALITY, fileHelper);
+		super(output, completableFuture, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override
-	protected void addTags()
+	protected void addTags(HolderLookup.Provider provider)
 	{
 		tag(EntityTags.Common.CHICKENS).add(EntityType.CHICKEN);
 		tag(EntityTags.Common.COWS).add(EntityType.COW);

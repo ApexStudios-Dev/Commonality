@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Instrument;
@@ -19,7 +19,7 @@ public interface InstrumentTags
 
 	static TagKey<Instrument> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.INSTRUMENT_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.INSTRUMENT, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<Instrument> forgeTag(String path)

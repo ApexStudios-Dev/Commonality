@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.entity.BannerPattern;
@@ -23,7 +23,7 @@ public interface BannerPatternTags
 
 	static TagKey<BannerPattern> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.BANNER_PATTERN_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.BANNER_PATTERN, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<BannerPattern> forgeTag(String path)

@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
@@ -25,7 +25,7 @@ public interface FluidTags
 
 	static TagKey<Fluid> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.FLUID_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.FLUID, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<Fluid> forgeTag(String path)

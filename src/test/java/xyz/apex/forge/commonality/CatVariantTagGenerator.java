@@ -1,18 +1,21 @@
 package xyz.apex.forge.commonality;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.CatVariantTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import java.util.concurrent.CompletableFuture;
+
 final class CatVariantTagGenerator extends CatVariantTagsProvider
 {
-	CatVariantTagGenerator(DataGenerator generator, ExistingFileHelper fileHelper)
+	CatVariantTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper fileHelper)
 	{
-		super(generator, Mods.COMMONALITY, fileHelper);
+		super(output, completableFuture, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override
-	protected void addTags()
+	protected void addTags(HolderLookup.Provider provider)
 	{
 	}
 

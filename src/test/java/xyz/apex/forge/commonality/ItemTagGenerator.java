@@ -1,21 +1,24 @@
 package xyz.apex.forge.commonality;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import xyz.apex.forge.commonality.tags.ItemTags;
 
+import java.util.concurrent.CompletableFuture;
+
 final class ItemTagGenerator extends ItemTagsProvider
 {
-	ItemTagGenerator(DataGenerator generator, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
+	ItemTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
 	{
-		super(generator, blockTagGenerator, Mods.COMMONALITY, fileHelper);
+		super(output, completableFuture, blockTagGenerator, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override
-	protected void addTags()
+	protected void addTags(HolderLookup.Provider provider)
 	{
 		tag(ItemTags.Common.QUARTZ_ORES).add(Items.NETHER_QUARTZ_ORE);
 		tag(ItemTags.Forge.ORES_QUARTZ).addTag(ItemTags.Common.QUARTZ_ORES);
@@ -24,7 +27,7 @@ final class ItemTagGenerator extends ItemTagsProvider
 
 		tag(ItemTags.Forge.TOOLS).addTags(ItemTags.Common.TOOLS_WRENCH);
 
-		tag(ItemTags.Common.ITEM_GROUPS).addTags(
+		/*tag(ItemTags.Common.ITEM_GROUPS).addTags(
 				ItemTags.Common.ITEM_GROUPS_BUILDING_BLOCKS,
 				ItemTags.Common.ITEM_GROUPS_DECORATIONS,
 				ItemTags.Common.ITEM_GROUPS_REDSTONE,
@@ -34,7 +37,7 @@ final class ItemTagGenerator extends ItemTagsProvider
 				ItemTags.Common.ITEM_GROUPS_TOOLS,
 				ItemTags.Common.ITEM_GROUPS_COMBAT,
 				ItemTags.Common.ITEM_GROUPS_BREWING
-		);
+		);*/
 
 		ItemTags.registerItemGroupTags(Mods.MINECRAFT, this::tag);
 	}

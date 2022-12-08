@@ -1,15 +1,11 @@
 package xyz.apex.forge.commonality.tags;
 
-import com.google.common.collect.ImmutableMap;
-
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import xyz.apex.forge.commonality.Mods;
 
@@ -30,12 +26,12 @@ public interface ItemTags
 		TagKey<Item> WOODEN_STAIRS = net.minecraft.tags.ItemTags.WOODEN_STAIRS;
 		TagKey<Item> WOODEN_SLABS = net.minecraft.tags.ItemTags.WOODEN_SLABS;
 		TagKey<Item> WOODEN_FENCES = net.minecraft.tags.ItemTags.WOODEN_FENCES;
+		TagKey<Item> FENCE_GATES = net.minecraft.tags.ItemTags.FENCE_GATES;
 		TagKey<Item> WOODEN_PRESSURE_PLATES = net.minecraft.tags.ItemTags.WOODEN_PRESSURE_PLATES;
 		TagKey<Item> WOODEN_TRAPDOORS = net.minecraft.tags.ItemTags.WOODEN_TRAPDOORS;
 		TagKey<Item> DOORS = net.minecraft.tags.ItemTags.DOORS;
 		TagKey<Item> SAPLINGS = net.minecraft.tags.ItemTags.SAPLINGS;
 		TagKey<Item> LOGS_THAT_BURN = net.minecraft.tags.ItemTags.LOGS_THAT_BURN;
-		TagKey<Item> OVERWORLD_NATURAL_LOGS = net.minecraft.tags.ItemTags.OVERWORLD_NATURAL_LOGS;
 		TagKey<Item> LOGS = net.minecraft.tags.ItemTags.LOGS;
 		TagKey<Item> DARK_OAK_LOGS = net.minecraft.tags.ItemTags.DARK_OAK_LOGS;
 		TagKey<Item> OAK_LOGS = net.minecraft.tags.ItemTags.OAK_LOGS;
@@ -46,6 +42,7 @@ public interface ItemTags
 		TagKey<Item> MANGROVE_LOGS = net.minecraft.tags.ItemTags.MANGROVE_LOGS;
 		TagKey<Item> CRIMSON_STEMS = net.minecraft.tags.ItemTags.CRIMSON_STEMS;
 		TagKey<Item> WARPED_STEMS = net.minecraft.tags.ItemTags.WARPED_STEMS;
+		TagKey<Item> BAMBOO_BLOCKS = net.minecraft.tags.ItemTags.BAMBOO_BLOCKS;
 		TagKey<Item> WART_BLOCKS = net.minecraft.tags.ItemTags.WART_BLOCKS;
 		TagKey<Item> BANNERS = net.minecraft.tags.ItemTags.BANNERS;
 		TagKey<Item> SAND = net.minecraft.tags.ItemTags.SAND;
@@ -89,6 +86,7 @@ public interface ItemTags
 		TagKey<Item> COALS = net.minecraft.tags.ItemTags.COALS;
 		TagKey<Item> ARROWS = net.minecraft.tags.ItemTags.ARROWS;
 		TagKey<Item> LECTERN_BOOKS = net.minecraft.tags.ItemTags.LECTERN_BOOKS;
+		TagKey<Item> BOOKSHELF_BOOKS = net.minecraft.tags.ItemTags.BOOKSHELF_BOOKS;
 		TagKey<Item> BEACON_PAYMENT_ITEMS = net.minecraft.tags.ItemTags.BEACON_PAYMENT_ITEMS;
 		TagKey<Item> STONE_TOOL_MATERIALS = net.minecraft.tags.ItemTags.STONE_TOOL_MATERIALS;
 		TagKey<Item> STONE_CRAFTING_MATERIALS = net.minecraft.tags.ItemTags.STONE_CRAFTING_MATERIALS;
@@ -97,6 +95,8 @@ public interface ItemTags
 		TagKey<Item> DAMPENS_VIBRATIONS = net.minecraft.tags.ItemTags.DAMPENS_VIBRATIONS;
 		TagKey<Item> CLUSTER_MAX_HARVESTABLES = net.minecraft.tags.ItemTags.CLUSTER_MAX_HARVESTABLES;
 		TagKey<Item> COMPASSES = net.minecraft.tags.ItemTags.COMPASSES;
+		TagKey<Item> HANGING_SIGNS = net.minecraft.tags.ItemTags.HANGING_SIGNS;
+		TagKey<Item> CREEPER_IGNITERS = net.minecraft.tags.ItemTags.CREEPER_IGNITERS;
 	}
 
 	interface Forge
@@ -310,7 +310,7 @@ public interface ItemTags
 
 	static TagKey<Item> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.ITEM, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<Item> forgeTag(String path)
@@ -337,32 +337,33 @@ public interface ItemTags
 	 */
 	static void registerItemGroupTags(String modId, Function<TagKey<Item>, TagsProvider.TagAppender<Item>> tagBuilder)
 	{
-		var itemGroupTagMap = ImmutableMap.of(
-				CreativeModeTab.TAB_BUILDING_BLOCKS,
+		// TODO:
+		/*var itemGroupTagMap = ImmutableMap.of(
+				CreativeModeTabs.BUILDING_BLOCKS,
 				Common.ITEM_GROUPS_BUILDING_BLOCKS,
 
-				CreativeModeTab.TAB_DECORATIONS,
+				CreativeModeTabs.TAB_DECORATIONS,
 				Common.ITEM_GROUPS_DECORATIONS,
 
-				CreativeModeTab.TAB_REDSTONE,
+				CreativeModeTabs.REDSTONE_BLOCKS,
 				Common.ITEM_GROUPS_REDSTONE,
 
-				CreativeModeTab.TAB_TRANSPORTATION,
+				CreativeModeTabs.TAB_TRANSPORTATION,
 				Common.ITEM_GROUPS_TRANSPORTATION,
 
-				CreativeModeTab.TAB_MISC,
+				CreativeModeTabs.TAB_MISC,
 				Common.ITEM_GROUPS_MISC,
 
-				CreativeModeTab.TAB_FOOD,
+				CreativeModeTabs.TAB_FOOD,
 				Common.ITEM_GROUPS_FOOD,
 
-				CreativeModeTab.TAB_TOOLS,
+				CreativeModeTabs.TAB_TOOLS,
 				Common.ITEM_GROUPS_TOOLS,
 
-				CreativeModeTab.TAB_COMBAT,
+				CreativeModeTabs.TAB_COMBAT,
 				Common.ITEM_GROUPS_COMBAT,
 
-				CreativeModeTab.TAB_BREWING,
+				CreativeModeTabs.TAB_BREWING,
 				Common.ITEM_GROUPS_BREWING
 		);
 
@@ -398,6 +399,6 @@ public interface ItemTags
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

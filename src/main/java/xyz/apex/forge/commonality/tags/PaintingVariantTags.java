@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.decoration.PaintingVariant;
@@ -17,7 +17,7 @@ public interface PaintingVariantTags
 
 	static TagKey<PaintingVariant> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.PAINTING_VARIANT_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.PAINTING_VARIANT, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<PaintingVariant> forgeTag(String path)

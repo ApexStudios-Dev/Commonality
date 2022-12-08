@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
@@ -129,7 +129,7 @@ public interface BiomeTags
 
 	static TagKey<Biome> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.BIOME, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<Biome> forgeTag(String path)

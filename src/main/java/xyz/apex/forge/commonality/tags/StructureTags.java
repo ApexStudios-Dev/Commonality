@@ -1,6 +1,6 @@
 package xyz.apex.forge.commonality.tags;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -28,7 +28,7 @@ public interface StructureTags
 
 	static TagKey<Structure> tag(String namespace, String path)
 	{
-		return TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(namespace, path));
+		return TagKey.create(Registries.STRUCTURE, new ResourceLocation(namespace, path));
 	}
 
 	static TagKey<Structure> forgeTag(String path)
