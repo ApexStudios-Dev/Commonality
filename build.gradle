@@ -8,9 +8,22 @@ plugins {
 	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 	id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1'
 	id 'com.palantir.git-version' version '1.0.0'
+	id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.78.0'
 }
 
 def repo = versionDetails()
+
+def previousGitTag = { ->
+	def stdout = new ByteArrayOutputStream()
+
+	exec {
+		commandLine 'git', 'describe', '--tags', '--abbrev=0', '--exclude', "${repo.lastTag}"
+		standardOutput = stdout
+	}
+
+	return stdout.toString()
+}
+
 version = "${repo.lastTag.substring(1)}.${repo.commitDistance}"
 group = "${mod_base_package}"
 archivesBaseName = "${mod_id}-${minecraft_version}"
@@ -183,7 +196,8 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Jar) {
-	from file('.github/CHANGELOG.md')
+	dependsOn gitChangelog
+	from file('CHANGELOG.md')
 	from file('LICENSE')
 
 	manifest {
@@ -262,6 +276,21 @@ publishing {
 			}
 		}
 	}
+}
+
+gitChangelog {
+	fromRef = "${previousGitTag}"
+	templateContent = """{{#tags}}
+## {{name}}
+{{#commits}}
+**{{{messageTitle}}}** ([{{authorName}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}))
+
+{{#messageBodyItems}}
+* {{.}}
+{{/messageBodyItems}}
+{{/commits}}
+
+{{/tags}}"""
 }
 
 idea.module {
