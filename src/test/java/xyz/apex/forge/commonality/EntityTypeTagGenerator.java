@@ -5,7 +5,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
 import xyz.apex.forge.commonality.tags.EntityTags;
 
 import java.util.concurrent.CompletableFuture;

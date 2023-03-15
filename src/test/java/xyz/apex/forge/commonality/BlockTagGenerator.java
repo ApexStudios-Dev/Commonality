@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
 import xyz.apex.forge.commonality.tags.BlockTags;
 
 import java.util.concurrent.CompletableFuture;

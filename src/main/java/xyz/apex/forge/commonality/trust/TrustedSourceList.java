@@ -1,11 +1,10 @@
 package xyz.apex.forge.commonality.trust;
 
 import com.google.common.collect.Lists;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -5,7 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.Tags;
-
 import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")

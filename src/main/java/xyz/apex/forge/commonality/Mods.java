@@ -1,12 +1,10 @@
 package xyz.apex.forge.commonality;
 
 import com.mojang.logging.LogUtils;
-import org.apache.logging.log4j.LogManager;
-
 import net.minecraftforge.data.loading.DatagenModLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.versions.forge.ForgeVersion;
-
+import org.apache.logging.log4j.LogManager;
 import xyz.apex.forge.commonality.trust.TrustManager;
 
 import java.lang.reflect.InvocationTargetException;
