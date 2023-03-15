@@ -5,7 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
-
 import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")
@@ -24,6 +23,8 @@ public interface EntityTags
 		TagKey<EntityType<?>> FREEZE_IMMUNE_ENTITY_TYPES = EntityTypeTags.FREEZE_IMMUNE_ENTITY_TYPES;
 		TagKey<EntityType<?>> FREEZE_HURTS_EXTRA_TYPES = EntityTypeTags.FREEZE_HURTS_EXTRA_TYPES;
 		TagKey<EntityType<?>> FROG_FOOD = EntityTypeTags.FROG_FOOD;
+		TagKey<EntityType<?>> FALL_DAMAGE_IMMUNE = EntityTypeTags.FALL_DAMAGE_IMMUNE;
+		TagKey<EntityType<?>> DISMOUNTS_UNDERWATER = EntityTypeTags.DISMOUNTS_UNDERWATER;
 	}
 
 	interface Forge

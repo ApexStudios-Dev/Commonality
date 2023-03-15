@@ -5,7 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
-
 import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")
@@ -36,6 +35,7 @@ public interface BlockTags
 		TagKey<Block> OAK_LOGS = net.minecraft.tags.BlockTags.OAK_LOGS;
 		TagKey<Block> BIRCH_LOGS = net.minecraft.tags.BlockTags.BIRCH_LOGS;
 		TagKey<Block> ACACIA_LOGS = net.minecraft.tags.BlockTags.ACACIA_LOGS;
+		TagKey<Block> CHERRY_LOGS = net.minecraft.tags.BlockTags.CHERRY_LOGS;
 		TagKey<Block> JUNGLE_LOGS = net.minecraft.tags.BlockTags.JUNGLE_LOGS;
 		TagKey<Block> SPRUCE_LOGS = net.minecraft.tags.BlockTags.SPRUCE_LOGS;
 		TagKey<Block> MANGROVE_LOGS = net.minecraft.tags.BlockTags.MANGROVE_LOGS;
@@ -45,6 +45,7 @@ public interface BlockTags
 		TagKey<Block> WART_BLOCKS = net.minecraft.tags.BlockTags.WART_BLOCKS;
 		TagKey<Block> BANNERS = net.minecraft.tags.BlockTags.BANNERS;
 		TagKey<Block> SAND = net.minecraft.tags.BlockTags.SAND;
+		TagKey<Block> SMELTS_TO_GLASS = net.minecraft.tags.BlockTags.SMELTS_TO_GLASS;
 		TagKey<Block> STAIRS = net.minecraft.tags.BlockTags.STAIRS;
 		TagKey<Block> SLABS = net.minecraft.tags.BlockTags.SLABS;
 		TagKey<Block> WALLS = net.minecraft.tags.BlockTags.WALLS;
@@ -170,6 +171,7 @@ public interface BlockTags
 		TagKey<Block> SNOW_LAYER_CANNOT_SURVIVE_ON = net.minecraft.tags.BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON;
 		TagKey<Block> SNOW_LAYER_CAN_SURVIVE_ON = net.minecraft.tags.BlockTags.SNOW_LAYER_CAN_SURVIVE_ON;
 		TagKey<Block> INVALID_SPAWN_INSIDE = net.minecraft.tags.BlockTags.INVALID_SPAWN_INSIDE;
+		TagKey<Block> SNIFFER_DIGGABLE_BLOCK = net.minecraft.tags.BlockTags.SNIFFER_DIGGABLE_BLOCK;
 	}
 
 	interface Forge

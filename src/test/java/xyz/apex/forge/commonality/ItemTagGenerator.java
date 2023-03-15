@@ -4,17 +4,17 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
 import xyz.apex.forge.commonality.tags.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
 final class ItemTagGenerator extends ItemTagsProvider
 {
-	ItemTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, BlockTagGenerator blockTagGenerator, ExistingFileHelper fileHelper)
+	ItemTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, CompletableFuture<TagLookup<Block>> blockTagLookup, ExistingFileHelper fileHelper)
 	{
-		super(output, completableFuture, blockTagGenerator, Mods.COMMONALITY, fileHelper);
+		super(output, completableFuture, blockTagLookup, Mods.COMMONALITY, fileHelper);
 	}
 
 	@Override
@@ -26,20 +26,6 @@ final class ItemTagGenerator extends ItemTagsProvider
 		tag(ItemTags.Common.TOOLS_WRENCH);
 
 		tag(ItemTags.Forge.TOOLS).addTags(ItemTags.Common.TOOLS_WRENCH);
-
-		/*tag(ItemTags.Common.ITEM_GROUPS).addTags(
-				ItemTags.Common.ITEM_GROUPS_BUILDING_BLOCKS,
-				ItemTags.Common.ITEM_GROUPS_DECORATIONS,
-				ItemTags.Common.ITEM_GROUPS_REDSTONE,
-				ItemTags.Common.ITEM_GROUPS_TRANSPORTATION,
-				ItemTags.Common.ITEM_GROUPS_MISC,
-				ItemTags.Common.ITEM_GROUPS_FOOD,
-				ItemTags.Common.ITEM_GROUPS_TOOLS,
-				ItemTags.Common.ITEM_GROUPS_COMBAT,
-				ItemTags.Common.ITEM_GROUPS_BREWING
-		);*/
-
-		ItemTags.registerItemGroupTags(Mods.MINECRAFT, this::tag);
 	}
 
 	@Override

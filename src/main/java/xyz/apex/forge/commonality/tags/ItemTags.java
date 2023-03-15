@@ -1,15 +1,11 @@
 package xyz.apex.forge.commonality.tags;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
-
 import xyz.apex.forge.commonality.Mods;
-
-import java.util.function.Function;
 
 @SuppressWarnings("ALL")
 public interface ItemTags
@@ -37,6 +33,7 @@ public interface ItemTags
 		TagKey<Item> OAK_LOGS = net.minecraft.tags.ItemTags.OAK_LOGS;
 		TagKey<Item> BIRCH_LOGS = net.minecraft.tags.ItemTags.BIRCH_LOGS;
 		TagKey<Item> ACACIA_LOGS = net.minecraft.tags.ItemTags.ACACIA_LOGS;
+		TagKey<Item> CHERRY_LOGS = net.minecraft.tags.ItemTags.CHERRY_LOGS;
 		TagKey<Item> JUNGLE_LOGS = net.minecraft.tags.ItemTags.JUNGLE_LOGS;
 		TagKey<Item> SPRUCE_LOGS = net.minecraft.tags.ItemTags.SPRUCE_LOGS;
 		TagKey<Item> MANGROVE_LOGS = net.minecraft.tags.ItemTags.MANGROVE_LOGS;
@@ -46,6 +43,7 @@ public interface ItemTags
 		TagKey<Item> WART_BLOCKS = net.minecraft.tags.ItemTags.WART_BLOCKS;
 		TagKey<Item> BANNERS = net.minecraft.tags.ItemTags.BANNERS;
 		TagKey<Item> SAND = net.minecraft.tags.ItemTags.SAND;
+		TagKey<Item> SMELTS_TO_GLASS = net.minecraft.tags.ItemTags.SMELTS_TO_GLASS;
 		TagKey<Item> STAIRS = net.minecraft.tags.ItemTags.STAIRS;
 		TagKey<Item> SLABS = net.minecraft.tags.ItemTags.SLABS;
 		TagKey<Item> WALLS = net.minecraft.tags.ItemTags.WALLS;
@@ -97,6 +95,19 @@ public interface ItemTags
 		TagKey<Item> COMPASSES = net.minecraft.tags.ItemTags.COMPASSES;
 		TagKey<Item> HANGING_SIGNS = net.minecraft.tags.ItemTags.HANGING_SIGNS;
 		TagKey<Item> CREEPER_IGNITERS = net.minecraft.tags.ItemTags.CREEPER_IGNITERS;
+		TagKey<Item> NOTE_BLOCK_TOP_INSTRUMENTS = net.minecraft.tags.ItemTags.NOTE_BLOCK_TOP_INSTRUMENTS;
+		TagKey<Item> TRIMMABLE_ARMOR = net.minecraft.tags.ItemTags.TRIMMABLE_ARMOR;
+		TagKey<Item> TRIM_MATERIALS = net.minecraft.tags.ItemTags.TRIM_MATERIALS;
+		TagKey<Item> TRIM_TEMPLATES = net.minecraft.tags.ItemTags.TRIM_TEMPLATES;
+		TagKey<Item> SNIFFER_FOOD = net.minecraft.tags.ItemTags.SNIFFER_FOOD;
+		TagKey<Item> DECORATED_POT_SHARDS = net.minecraft.tags.ItemTags.DECORATED_POT_SHARDS;
+		TagKey<Item> SWORDS = net.minecraft.tags.ItemTags.SWORDS;
+		TagKey<Item> AXES = net.minecraft.tags.ItemTags.AXES;
+		TagKey<Item> HOES = net.minecraft.tags.ItemTags.HOES;
+		TagKey<Item> PICKAXES = net.minecraft.tags.ItemTags.PICKAXES;
+		TagKey<Item> SHOVELS = net.minecraft.tags.ItemTags.SHOVELS;
+		TagKey<Item> TOOLS = net.minecraft.tags.ItemTags.TOOLS;
+		TagKey<Item> BREAKS_DECORATED_POTS = net.minecraft.tags.ItemTags.BREAKS_DECORATED_POTS;
 	}
 
 	interface Forge
@@ -294,18 +305,6 @@ public interface ItemTags
 		TagKey<Item> QUARTZ_ORES = vanillaTag("quartz_ores");
 
 		TagKey<Item> TOOLS_WRENCH = forgeTag("tools/wrench");
-
-		// Creative Mode Tabs
-		TagKey<Item> ITEM_GROUPS = tag(Mods.COMMONALITY, "item_groups");
-		TagKey<Item> ITEM_GROUPS_BUILDING_BLOCKS = tag(Mods.COMMONALITY, "item_groups/building_blocks");
-		TagKey<Item> ITEM_GROUPS_DECORATIONS = tag(Mods.COMMONALITY, "item_groups/decorations");
-		TagKey<Item> ITEM_GROUPS_REDSTONE = tag(Mods.COMMONALITY, "item_groups/redstone");
-		TagKey<Item> ITEM_GROUPS_TRANSPORTATION = tag(Mods.COMMONALITY, "item_groups/transportation");
-		TagKey<Item> ITEM_GROUPS_MISC = tag(Mods.COMMONALITY, "item_groups/misc");
-		TagKey<Item> ITEM_GROUPS_FOOD = tag(Mods.COMMONALITY, "item_groups/food");
-		TagKey<Item> ITEM_GROUPS_TOOLS = tag(Mods.COMMONALITY, "item_groups/tools");
-		TagKey<Item> ITEM_GROUPS_COMBAT = tag(Mods.COMMONALITY, "item_groups/combat");
-		TagKey<Item> ITEM_GROUPS_BREWING = tag(Mods.COMMONALITY, "item_groups/brewing");
 	}
 
 	static TagKey<Item> tag(String namespace, String path)
@@ -321,84 +320,5 @@ public interface ItemTags
 	static TagKey<Item> vanillaTag(String path)
 	{
 		return tag(Mods.MINECRAFT, path);
-	}
-
-	/**
-	 * Register Creative Mode Tab <-> Item Tag entries for all Items from a given mod
-	 * <p>
-	 * Call from your ItemTagsProvider#addTags method<br>
-	 * <pre>{@code ItemTags.registerItemGroupTags("my_mod_id", this::tag)}</pre>
-	 *
-	 * If you are using Registrate, you can do something similar to the following<br>
-	 * <pre>{@code MyMod.registrate().addDataGenerator(ProviderType.ITEM_TAGS, provider -> ItemTags.registerItemGroupTags("my_mod_id", provider::tag));}</pre>
-	 *
-	 * @param modId Mod ID to register Creative Mode Tab ItemTags for
-	 * @param tagBuilder Factory method used to obtain Tag Builder instances (This should be a method reference to {@link TagsProvider#tag(TagKey)})
-	 */
-	static void registerItemGroupTags(String modId, Function<TagKey<Item>, TagsProvider.TagAppender<Item>> tagBuilder)
-	{
-		// TODO:
-		/*var itemGroupTagMap = ImmutableMap.of(
-				CreativeModeTabs.BUILDING_BLOCKS,
-				Common.ITEM_GROUPS_BUILDING_BLOCKS,
-
-				CreativeModeTabs.TAB_DECORATIONS,
-				Common.ITEM_GROUPS_DECORATIONS,
-
-				CreativeModeTabs.REDSTONE_BLOCKS,
-				Common.ITEM_GROUPS_REDSTONE,
-
-				CreativeModeTabs.TAB_TRANSPORTATION,
-				Common.ITEM_GROUPS_TRANSPORTATION,
-
-				CreativeModeTabs.TAB_MISC,
-				Common.ITEM_GROUPS_MISC,
-
-				CreativeModeTabs.TAB_FOOD,
-				Common.ITEM_GROUPS_FOOD,
-
-				CreativeModeTabs.TAB_TOOLS,
-				Common.ITEM_GROUPS_TOOLS,
-
-				CreativeModeTabs.TAB_COMBAT,
-				Common.ITEM_GROUPS_COMBAT,
-
-				CreativeModeTabs.TAB_BREWING,
-				Common.ITEM_GROUPS_BREWING
-		);
-
-		for(var item : ForgeRegistries.ITEMS)
-		{
-			var registryName = ForgeRegistries.ITEMS.getKey(item);
-
-			if(registryName != null && registryName.getNamespace().equals(modId))
-			{
-				var itemGroup = item.getItemCategory();
-
-				if(itemGroup != null)
-				{
-					var tag = itemGroupTagMap.get(itemGroup);
-
-					if(tag == null)
-						continue;
-
-					tagBuilder.apply(tag).add(item);
-				}
-
-				for(var otherItemGroup : item.getCreativeTabs())
-				{
-					if(otherItemGroup != null)
-					{
-						if(itemGroup != null && itemGroup == otherItemGroup)
-							continue;
-
-						var tag = itemGroupTagMap.get(otherItemGroup);
-
-						if(tag != null)
-							tagBuilder.apply(tag).add(item);
-					}
-				}
-			}
-		}*/
 	}
 }

@@ -5,7 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.Tags;
-
 import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")
@@ -66,17 +65,21 @@ public interface BiomeTags
 		TagKey<Biome> HAS_CLOSER_WATER_FOG = net.minecraft.tags.BiomeTags.HAS_CLOSER_WATER_FOG;
 		TagKey<Biome> WATER_ON_MAP_OUTLINES = net.minecraft.tags.BiomeTags.WATER_ON_MAP_OUTLINES;
 		TagKey<Biome> PRODUCES_CORALS_FROM_BONEMEAL = net.minecraft.tags.BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL;
+		TagKey<Biome> INCREASED_FIRE_BURNOUT = net.minecraft.tags.BiomeTags.INCREASED_FIRE_BURNOUT;
+		TagKey<Biome> SNOW_GOLEM_MELTS = net.minecraft.tags.BiomeTags.SNOW_GOLEM_MELTS;
 		TagKey<Biome> WITHOUT_ZOMBIE_SIEGES = net.minecraft.tags.BiomeTags.WITHOUT_ZOMBIE_SIEGES;
 		TagKey<Biome> WITHOUT_PATROL_SPAWNS = net.minecraft.tags.BiomeTags.WITHOUT_PATROL_SPAWNS;
 		TagKey<Biome> WITHOUT_WANDERING_TRADER_SPAWNS = net.minecraft.tags.BiomeTags.WITHOUT_WANDERING_TRADER_SPAWNS;
 		TagKey<Biome> SPAWNS_COLD_VARIANT_FROGS = net.minecraft.tags.BiomeTags.SPAWNS_COLD_VARIANT_FROGS;
 		TagKey<Biome> SPAWNS_WARM_VARIANT_FROGS = net.minecraft.tags.BiomeTags.SPAWNS_WARM_VARIANT_FROGS;
-		TagKey<Biome> ONLY_ALLOWS_SNOW_AND_GOLD_RABBITS = net.minecraft.tags.BiomeTags.ONLY_ALLOWS_SNOW_AND_GOLD_RABBITS;
+		TagKey<Biome> SPAWNS_GOLD_RABBITS = net.minecraft.tags.BiomeTags.SPAWNS_GOLD_RABBITS;
+		TagKey<Biome> SPAWNS_WHITE_RABBITS = net.minecraft.tags.BiomeTags.SPAWNS_WHITE_RABBITS;
 		TagKey<Biome> REDUCED_WATER_AMBIENT_SPAWNS = net.minecraft.tags.BiomeTags.REDUCED_WATER_AMBIENT_SPAWNS;
 		TagKey<Biome> ALLOWS_TROPICAL_FISH_SPAWNS_AT_ANY_HEIGHT = net.minecraft.tags.BiomeTags.ALLOWS_TROPICAL_FISH_SPAWNS_AT_ANY_HEIGHT;
 		TagKey<Biome> POLAR_BEARS_SPAWN_ON_ALTERNATE_BLOCKS = net.minecraft.tags.BiomeTags.POLAR_BEARS_SPAWN_ON_ALTERNATE_BLOCKS;
 		TagKey<Biome> MORE_FREQUENT_DROWNED_SPAWNS = net.minecraft.tags.BiomeTags.MORE_FREQUENT_DROWNED_SPAWNS;
 		TagKey<Biome> ALLOWS_SURFACE_SLIME_SPAWNS = net.minecraft.tags.BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS;
+		TagKey<Biome> SPAWNS_SNOW_FOXES = net.minecraft.tags.BiomeTags.SPAWNS_SNOW_FOXES;
 	}
 
 	interface Forge
@@ -115,6 +118,7 @@ public interface BiomeTags
 		TagKey<Biome> IS_PLATEAU = Tags.Biomes.IS_PLATEAU;
 		TagKey<Biome> IS_MODIFIED = Tags.Biomes.IS_MODIFIED;
 		TagKey<Biome> IS_WATER = Tags.Biomes.IS_WATER;
+		TagKey<Biome> IS_DESERT = Tags.Biomes.IS_DESERT;
 		TagKey<Biome> IS_PLAINS = Tags.Biomes.IS_PLAINS;
 		TagKey<Biome> IS_SWAMP = Tags.Biomes.IS_SWAMP;
 		TagKey<Biome> IS_SANDY = Tags.Biomes.IS_SANDY;
@@ -122,6 +126,7 @@ public interface BiomeTags
 		TagKey<Biome> IS_WASTELAND = Tags.Biomes.IS_WASTELAND;
 		TagKey<Biome> IS_VOID = Tags.Biomes.IS_VOID;
 		TagKey<Biome> IS_UNDERGROUND = Tags.Biomes.IS_UNDERGROUND;
+		TagKey<Biome> IS_CAVE = Tags.Biomes.IS_CAVE;
 		TagKey<Biome> IS_PEAK = Tags.Biomes.IS_PEAK;
 		TagKey<Biome> IS_SLOPE = Tags.Biomes.IS_SLOPE;
 		TagKey<Biome> IS_MOUNTAIN = Tags.Biomes.IS_MOUNTAIN;

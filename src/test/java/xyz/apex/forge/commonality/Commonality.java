@@ -29,7 +29,7 @@ public final class Commonality
 			generator.addProvider(includeServer, new FluidTagGenerator(output, lookupProvider, fileHelper));
 			generator.addProvider(includeServer, new GameEventTagGenerator(output, lookupProvider, fileHelper));
 			generator.addProvider(includeServer, new InstrumentTagGenerator(output, lookupProvider, fileHelper));
-			generator.addProvider(includeServer, new ItemTagGenerator(output, lookupProvider, blockTags, fileHelper));
+			generator.addProvider(includeServer, new ItemTagGenerator(output, lookupProvider, blockTags.contentsGetter(), fileHelper));
 			generator.addProvider(includeServer, new PaintingVariantTagGenerator(output, lookupProvider, fileHelper));
 			generator.addProvider(includeServer, new PoiTypeTagGenerator(output, lookupProvider, fileHelper));
 			generator.addProvider(includeServer, new StructureTagGenerator(output, lookupProvider, fileHelper));
