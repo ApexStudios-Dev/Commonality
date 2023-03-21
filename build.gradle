@@ -275,7 +275,7 @@ if(System.getenv('DISCORD_CHANGELOG_WEBHOOK_URL') != null) {
 					embeds: [
 							[
 									title: "**${mod_name}** updated to **_v${version}_**!",
-									description: "${tasks.createChangelog.outputFile.map { it.asFile.text.split('\n').drop(1).join('\n') }.get()}\n\n*[${emojis['github']} **Download**](https://github.com/ApexStudios-Dev/${mod_name})",
+									description: "${tasks.createChangelog.outputFile.map { it.asFile.text.split('\n').drop(1).join('\n') }.get()}\n\n[${emojis['github']} **Download**](https://github.com/ApexStudios-Dev/${mod_name})",
 									url: "https://github.com/ApexStudios-Dev/${mod_name}/tree/${minecraft_version}/master",
 									color: "${Integer.decode(mod_color)}",
 									footer: [
