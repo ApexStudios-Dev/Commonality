@@ -3,7 +3,7 @@ plugins {
 	id 'idea'
 	id 'maven-publish'
 
-	id 'net.minecraftforge.gradle' version '5.1.+'
+	id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 	id 'org.spongepowered.mixin' version '0.7.+'
 //	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 	id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1'
@@ -22,11 +22,6 @@ group = "${mod_base_package}"
 archivesBaseName = "${mod_id}-${minecraft_version}"
 
 jarJar.enable()
-
-configurations {
-	library
-	implementation.extendsFrom library
-}
 
 sourceSets {
 	main {
@@ -107,7 +102,6 @@ minecraft {
 			property 'forge.enableGameTest', 'true'
 			property 'forge.enabledGameTestNamespaces', "${mod_id}"
 			args 'nogui'
-			forceExit false
 
 			mods {
 				"${mod_id}" {
@@ -124,9 +118,6 @@ minecraft {
 			property 'forge.logging.console.level', 'debug'
 			property 'fml.earlyprogresswindow', 'false'
 			args '--mod', mod_id, '--client', '--server', '--validate', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-			// ForgeGradle will just force-exit the Gradle Daemon which fails our builds in case
-			// a daemon is used for any reason.
-			forceExit false
 
 			mods {
 				"${mod_id}" {
@@ -135,12 +126,6 @@ minecraft {
 				}
 			}
 		}
-	}
-}
-
-minecraft.runs.all {
-	lazyToken('minecraft_classpath') {
-		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
 	}
 }
 
@@ -226,11 +211,11 @@ java {
 }
 
 tasks.jarJar.configure {
-	classifier ''
+	archiveClassifier = ''
 }
 
 jar {
-	classifier 'slim'
+	archiveClassifier = 'slim'
 	from sourceSets.main.output.classesDirs
 	from sourceSets.main.output.resourcesDir
 }

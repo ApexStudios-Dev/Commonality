@@ -680,7 +680,6 @@ public interface Constants
 		EntityEquipmentPredicate ANY_EQUIPMENT = EntityEquipmentPredicate.ANY;
 		EntityFlagsPredicate ANY_FLAGS = EntityFlagsPredicate.ANY;
 		EntityPredicate ANY_ENTITY = EntityPredicate.ANY;
-		EntityPredicate.Composite ANY_ENTITY_COMPOSITE = EntityPredicate.Composite.ANY;
 		EntityTypePredicate ANY_ENTITY_TYPE = EntityTypePredicate.ANY;
 		FishingHookPredicate ANY_FISHING_HOOK = FishingHookPredicate.ANY;
 		FluidPredicate ANY_FLUID = FluidPredicate.ANY;

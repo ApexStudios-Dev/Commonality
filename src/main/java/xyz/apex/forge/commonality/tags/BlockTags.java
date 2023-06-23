@@ -16,6 +16,7 @@ public interface BlockTags
 		TagKey<Block> PLANKS = net.minecraft.tags.BlockTags.PLANKS;
 		TagKey<Block> STONE_BRICKS = net.minecraft.tags.BlockTags.STONE_BRICKS;
 		TagKey<Block> WOODEN_BUTTONS = net.minecraft.tags.BlockTags.WOODEN_BUTTONS;
+		TagKey<Block> STONE_BUTTONS = net.minecraft.tags.BlockTags.STONE_BUTTONS;
 		TagKey<Block> BUTTONS = net.minecraft.tags.BlockTags.BUTTONS;
 		TagKey<Block> WOOL_CARPETS = net.minecraft.tags.BlockTags.WOOL_CARPETS;
 		TagKey<Block> WOODEN_DOORS = net.minecraft.tags.BlockTags.WOODEN_DOORS;
@@ -127,6 +128,7 @@ public interface BlockTags
 		TagKey<Block> CAULDRONS = net.minecraft.tags.BlockTags.CAULDRONS;
 		TagKey<Block> CRYSTAL_SOUND_BLOCKS = net.minecraft.tags.BlockTags.CRYSTAL_SOUND_BLOCKS;
 		TagKey<Block> INSIDE_STEP_SOUND_BLOCKS = net.minecraft.tags.BlockTags.INSIDE_STEP_SOUND_BLOCKS;
+		TagKey<Block> COMBINATION_STEP_SOUND_BLOCKS = net.minecraft.tags.BlockTags.COMBINATION_STEP_SOUND_BLOCKS;
 		TagKey<Block> OCCLUDES_VIBRATION_SIGNALS = net.minecraft.tags.BlockTags.OCCLUDES_VIBRATION_SIGNALS;
 		TagKey<Block> DAMPENS_VIBRATIONS = net.minecraft.tags.BlockTags.DAMPENS_VIBRATIONS;
 		TagKey<Block> DRIPSTONE_REPLACEABLE = net.minecraft.tags.BlockTags.DRIPSTONE_REPLACEABLE;
@@ -141,6 +143,7 @@ public interface BlockTags
 		TagKey<Block> MINEABLE_WITH_HOE = net.minecraft.tags.BlockTags.MINEABLE_WITH_HOE;
 		TagKey<Block> MINEABLE_WITH_PICKAXE = net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
 		TagKey<Block> MINEABLE_WITH_SHOVEL = net.minecraft.tags.BlockTags.MINEABLE_WITH_SHOVEL;
+		TagKey<Block> SWORD_EFFICIENT = net.minecraft.tags.BlockTags.SWORD_EFFICIENT;
 		TagKey<Block> NEEDS_DIAMOND_TOOL = net.minecraft.tags.BlockTags.NEEDS_DIAMOND_TOOL;
 		TagKey<Block> NEEDS_IRON_TOOL = net.minecraft.tags.BlockTags.NEEDS_IRON_TOOL;
 		TagKey<Block> NEEDS_STONE_TOOL = net.minecraft.tags.BlockTags.NEEDS_STONE_TOOL;
@@ -151,6 +154,7 @@ public interface BlockTags
 		TagKey<Block> SCULK_REPLACEABLE = net.minecraft.tags.BlockTags.SCULK_REPLACEABLE;
 		TagKey<Block> SCULK_REPLACEABLE_WORLD_GEN = net.minecraft.tags.BlockTags.SCULK_REPLACEABLE_WORLD_GEN;
 		TagKey<Block> ANCIENT_CITY_REPLACEABLE = net.minecraft.tags.BlockTags.ANCIENT_CITY_REPLACEABLE;
+		TagKey<Block> VIBRATION_RESONATORS = net.minecraft.tags.BlockTags.VIBRATION_RESONATORS;
 		TagKey<Block> ANIMALS_SPAWNABLE_ON = net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON;
 		TagKey<Block> AXOLOTLS_SPAWNABLE_ON = net.minecraft.tags.BlockTags.AXOLOTLS_SPAWNABLE_ON;
 		TagKey<Block> GOATS_SPAWNABLE_ON = net.minecraft.tags.BlockTags.GOATS_SPAWNABLE_ON;
@@ -162,16 +166,22 @@ public interface BlockTags
 		TagKey<Block> WOLVES_SPAWNABLE_ON = net.minecraft.tags.BlockTags.WOLVES_SPAWNABLE_ON;
 		TagKey<Block> FROGS_SPAWNABLE_ON = net.minecraft.tags.BlockTags.FROGS_SPAWNABLE_ON;
 		TagKey<Block> AZALEA_GROWS_ON = net.minecraft.tags.BlockTags.AZALEA_GROWS_ON;
-		TagKey<Block> REPLACEABLE_PLANTS = net.minecraft.tags.BlockTags.REPLACEABLE_PLANTS;
 		TagKey<Block> CONVERTABLE_TO_MUD = net.minecraft.tags.BlockTags.CONVERTABLE_TO_MUD;
 		TagKey<Block> MANGROVE_LOGS_CAN_GROW_THROUGH = net.minecraft.tags.BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH;
 		TagKey<Block> MANGROVE_ROOTS_CAN_GROW_THROUGH = net.minecraft.tags.BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH;
 		TagKey<Block> DEAD_BUSH_MAY_PLACE_ON = net.minecraft.tags.BlockTags.DEAD_BUSH_MAY_PLACE_ON;
 		TagKey<Block> SNAPS_GOAT_HORN = net.minecraft.tags.BlockTags.SNAPS_GOAT_HORN;
+		TagKey<Block> REPLACEABLE_BY_TREES = net.minecraft.tags.BlockTags.REPLACEABLE_BY_TREES;
 		TagKey<Block> SNOW_LAYER_CANNOT_SURVIVE_ON = net.minecraft.tags.BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON;
 		TagKey<Block> SNOW_LAYER_CAN_SURVIVE_ON = net.minecraft.tags.BlockTags.SNOW_LAYER_CAN_SURVIVE_ON;
 		TagKey<Block> INVALID_SPAWN_INSIDE = net.minecraft.tags.BlockTags.INVALID_SPAWN_INSIDE;
 		TagKey<Block> SNIFFER_DIGGABLE_BLOCK = net.minecraft.tags.BlockTags.SNIFFER_DIGGABLE_BLOCK;
+		TagKey<Block> SNIFFER_EGG_HATCH_BOOST = net.minecraft.tags.BlockTags.SNIFFER_EGG_HATCH_BOOST;
+		TagKey<Block> TRAIL_RUINS_REPLACEABLE = net.minecraft.tags.BlockTags.TRAIL_RUINS_REPLACEABLE;
+		TagKey<Block> REPLACEABLE = net.minecraft.tags.BlockTags.REPLACEABLE;
+		TagKey<Block> ENCHANTMENT_POWER_PROVIDER = net.minecraft.tags.BlockTags.ENCHANTMENT_POWER_PROVIDER;
+		TagKey<Block> ENCHANTMENT_POWER_TRANSMITTER = net.minecraft.tags.BlockTags.ENCHANTMENT_POWER_TRANSMITTER;
+		TagKey<Block> MAINTAINS_FARMLAND = net.minecraft.tags.BlockTags.MAINTAINS_FARMLAND;
 	}
 
 	interface Forge

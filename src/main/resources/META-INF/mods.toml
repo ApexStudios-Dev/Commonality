@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[46,48)"
 license="GNU General Public License v3.0"
 issueTrackerURL="https://discord.apexstudios.dev/"
 
@@ -18,16 +18,12 @@ issueTrackerURL="https://discord.apexstudios.dev/"
 [[dependencies.commonality]]
 	modId="forge"
 	mandatory=true
-	versionRange="[45.0.0,46.0.0)"
+	versionRange="[46.0.0,48.0.0)"
 	ordering="AFTER"
 	side="BOTH"
-	[dependencies.commonality.custom.mc-publish]
-		ignore=true
 [[dependencies.commonality]]
 	modId="minecraft"
 	mandatory=true
-	versionRange="[1.19.4,1.20)"
+	versionRange="[1.20,1.20.2)"
 	ordering="AFTER"
 	side="BOTH"
-	[dependencies.commonality.custom.mc-publish]
-		ignore=true

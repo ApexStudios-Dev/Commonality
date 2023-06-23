@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraftforge.common.Tags;
 import xyz.apex.forge.commonality.Mods;
 
 @SuppressWarnings("ALL")
@@ -29,6 +30,7 @@ public interface EntityTags
 
 	interface Forge
 	{
+		TagKey<EntityType<?>> BOSSES = Tags.EntityTypes.BOSSES;
 	}
 
 	interface Common

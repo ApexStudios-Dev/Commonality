@@ -16,6 +16,7 @@ public interface ItemTags
 		TagKey<Item> PLANKS = net.minecraft.tags.ItemTags.PLANKS;
 		TagKey<Item> STONE_BRICKS = net.minecraft.tags.ItemTags.STONE_BRICKS;
 		TagKey<Item> WOODEN_BUTTONS = net.minecraft.tags.ItemTags.WOODEN_BUTTONS;
+		TagKey<Item> STONE_BUTTONS = net.minecraft.tags.ItemTags.STONE_BUTTONS;
 		TagKey<Item> BUTTONS = net.minecraft.tags.ItemTags.BUTTONS;
 		TagKey<Item> WOOL_CARPETS = net.minecraft.tags.ItemTags.WOOL_CARPETS;
 		TagKey<Item> WOODEN_DOORS = net.minecraft.tags.ItemTags.WOODEN_DOORS;
@@ -100,7 +101,8 @@ public interface ItemTags
 		TagKey<Item> TRIM_MATERIALS = net.minecraft.tags.ItemTags.TRIM_MATERIALS;
 		TagKey<Item> TRIM_TEMPLATES = net.minecraft.tags.ItemTags.TRIM_TEMPLATES;
 		TagKey<Item> SNIFFER_FOOD = net.minecraft.tags.ItemTags.SNIFFER_FOOD;
-		TagKey<Item> DECORATED_POT_SHARDS = net.minecraft.tags.ItemTags.DECORATED_POT_SHARDS;
+		TagKey<Item> DECORATED_POT_SHERDS = net.minecraft.tags.ItemTags.DECORATED_POT_SHERDS;
+		TagKey<Item> DECORATED_POT_INGREDIENTS = net.minecraft.tags.ItemTags.DECORATED_POT_INGREDIENTS;
 		TagKey<Item> SWORDS = net.minecraft.tags.ItemTags.SWORDS;
 		TagKey<Item> AXES = net.minecraft.tags.ItemTags.AXES;
 		TagKey<Item> HOES = net.minecraft.tags.ItemTags.HOES;
@@ -108,6 +110,7 @@ public interface ItemTags
 		TagKey<Item> SHOVELS = net.minecraft.tags.ItemTags.SHOVELS;
 		TagKey<Item> TOOLS = net.minecraft.tags.ItemTags.TOOLS;
 		TagKey<Item> BREAKS_DECORATED_POTS = net.minecraft.tags.ItemTags.BREAKS_DECORATED_POTS;
+		TagKey<Item> VILLAGER_PLANTABLE_SEEDS = net.minecraft.tags.ItemTags.VILLAGER_PLANTABLE_SEEDS;
 	}
 
 	interface Forge
@@ -283,11 +286,6 @@ public interface ItemTags
 		TagKey<Item> STORAGE_BLOCKS_REDSTONE = Tags.Items.STORAGE_BLOCKS_REDSTONE;
 		TagKey<Item> STRING = Tags.Items.STRING;
 		TagKey<Item> TOOLS = Tags.Items.TOOLS;
-		TagKey<Item> TOOLS_SWORDS = Tags.Items.TOOLS_SWORDS;
-		TagKey<Item> TOOLS_AXES = Tags.Items.TOOLS_AXES;
-		TagKey<Item> TOOLS_PICKAXES = Tags.Items.TOOLS_PICKAXES;
-		TagKey<Item> TOOLS_SHOVELS = Tags.Items.TOOLS_SHOVELS;
-		TagKey<Item> TOOLS_HOES = Tags.Items.TOOLS_HOES;
 		TagKey<Item> TOOLS_SHIELDS = Tags.Items.TOOLS_SHIELDS;
 		TagKey<Item> TOOLS_BOWS = Tags.Items.TOOLS_BOWS;
 		TagKey<Item> TOOLS_CROSSBOWS = Tags.Items.TOOLS_CROSSBOWS;

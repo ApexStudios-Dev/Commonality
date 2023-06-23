@@ -52,6 +52,7 @@ public interface BiomeTags
 		TagKey<Biome> HAS_VILLAGE_SAVANNA = net.minecraft.tags.BiomeTags.HAS_VILLAGE_SAVANNA;
 		TagKey<Biome> HAS_VILLAGE_SNOWY = net.minecraft.tags.BiomeTags.HAS_VILLAGE_SNOWY;
 		TagKey<Biome> HAS_VILLAGE_TAIGA = net.minecraft.tags.BiomeTags.HAS_VILLAGE_TAIGA;
+		TagKey<Biome> HAS_TRAIL_RUINS = net.minecraft.tags.BiomeTags.HAS_TRAIL_RUINS;
 		TagKey<Biome> HAS_WOODLAND_MANSION = net.minecraft.tags.BiomeTags.HAS_WOODLAND_MANSION;
 		TagKey<Biome> HAS_NETHER_FORTRESS = net.minecraft.tags.BiomeTags.HAS_NETHER_FORTRESS;
 		TagKey<Biome> HAS_NETHER_FOSSIL = net.minecraft.tags.BiomeTags.HAS_NETHER_FOSSIL;
